@@ -29,6 +29,8 @@ Cipher is an opensource memory layer specifically designed for coding agents. Co
 
 Built by [Byterover team](https://byterover.dev/)
 
+> **Fork Notice**: This is an enhanced fork with modernization improvements (Bun, BiomeJS, Lefthook). See [FORK.md](FORK.md) for changes.
+
 **Key Features:**
 
 - 🔌 MCP integration with any IDE you want.

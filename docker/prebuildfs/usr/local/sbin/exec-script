@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+
+# A POSIX variable
+OPTIND=1
+
+function main() {
+    local _script="$1"
+    shift;
+    set -eux;
+    chmod +x "$_script" && "$_script" "$@"
+    :
+}
+
+main "$@"

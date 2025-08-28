@@ -1,0 +1,39 @@
+#!/bin/sh
+
+set -e
+set -u
+
+export DEBIAN_FRONTEND=noninteractive
+
+n=0
+max=2
+
+BUILDPLATFORM=${BUILDPLATFORM:=''}
+TARGETPLATFORM=${TARGETPLATFORM:-''}
+
+until [ $n -gt $max ]; do
+    set +e
+    (
+      printf "\n\t🐋 BUILDPLATFORM=%s TARGETPLATFORM=%s 🐋\t\n" "${BUILDPLATFORM}" "${TARGETPLATFORM}";
+      printf "\n\t🐋 Installing packages 🐋\t\n";
+      printf "\n%s\n" "$@"
+      apt-get update -qq &&
+      apt-get install -yqq --no-install-recommends "$@"
+    )
+    CODE=$?
+    set -e
+    if [ $CODE -eq 0 ]; then
+        break
+    fi
+    if [ $n -eq $max ]; then
+        exit $CODE
+    fi
+    echo "apt failed, retrying"
+    n=$(($n + 1))
+done
+
+# disable, use --mount bind
+# rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+apt-get clean;
+apt-get autoremove;

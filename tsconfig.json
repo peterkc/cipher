@@ -19,12 +19,13 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
-		"types": ["node", "vitest/globals"],
+		"types": ["node", "vitest/globals", "bun-types"],
 		"lib": ["ES2022", "DOM"],
 		"declaration": true,
 		"declarationMap": true,
 		"allowImportingTsExtensions": false,
-		"noEmit": false
+		"noEmit": false,
+        "isolatedDeclarations": true
 	},
 	"include": ["src/**/*", "**/*.test.ts", "**/*.spec.ts", "vitest.config.ts"],
 	"exclude": ["node_modules"]

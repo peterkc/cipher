@@ -74,6 +74,8 @@ poetry/
 Dockerfile*
 docker-compose*
 compose.y*ml
+*.dockerfile
+*.hcl
 
 # Temporary files
 tmp/

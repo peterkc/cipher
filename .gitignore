@@ -13,6 +13,10 @@ build/
 .next/
 out/
 
+# Compiled executables
+cipher
+cipher-*
+
 # Environment files
 .env
 .env.local
@@ -70,3 +74,4 @@ qdrant-data/
 faiss-data/
 volumes/
 .kiro/
+.envrc.private

@@ -7,7 +7,7 @@
  * @module storage/backend/sqlite
  */
 
-import Database from 'better-sqlite3';
+import { Database } from 'bun:sqlite';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
 import { existsSync } from 'fs';
@@ -358,9 +358,9 @@ export class SqliteBackend implements DatabaseBackend {
 
 			// Range query for lists
 			getRange: this.db.prepare(`
-				SELECT value FROM lists 
-				WHERE key = ? 
-				ORDER BY position 
+				SELECT value FROM lists
+				WHERE key = ?
+				ORDER BY position
 				LIMIT ? OFFSET ?
 			`),
 			listCount: this.db.prepare('SELECT COUNT(*) as count FROM lists WHERE key = ?'),

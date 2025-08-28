@@ -7,15 +7,15 @@
  * @module storage/backend/sqlite
  */
 
-import Database from 'better-sqlite3';
+import { Database, Statement } from 'bun:sqlite';
+import { existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
-import { existsSync } from 'fs';
-import type { DatabaseBackend } from './database-backend.js';
+import { createLogger, Logger } from '../../logger/index.js';
 import type { SqliteBackendConfig } from '../config.js';
-import { StorageError, StorageConnectionError } from './types.js';
 import { BACKEND_TYPES, ERROR_MESSAGES } from '../constants.js';
-import { Logger, createLogger } from '../../logger/index.js';
+import type { DatabaseBackend } from './database-backend.js';
+import { StorageConnectionError, StorageError } from './types.js';
 
 /**
  * SQLite Database Backend
@@ -45,17 +45,17 @@ import { Logger, createLogger } from '../../logger/index.js';
 export class SqliteBackend implements DatabaseBackend {
 	private readonly logger: Logger;
 	private connected = false;
-	private db: Database.Database | undefined;
+	private db: Database | undefined;
 	private dbPath: string;
 
 	// Prepared statements for performance
 	private statements: {
-		get?: Database.Statement;
-		set?: Database.Statement;
-		delete?: Database.Statement;
-		list?: Database.Statement;
-		getRange?: Database.Statement;
-		listCount?: Database.Statement;
+		get?: Statement;
+		set?: Statement;
+		delete?: Statement;
+		list?: Statement;
+		getRange?: Statement;
+		listCount?: Statement;
 	} = {};
 
 	constructor(private config: SqliteBackendConfig) {
@@ -96,9 +96,9 @@ export class SqliteBackend implements DatabaseBackend {
 
 			// Test basic database functionality
 			this.logger.debug('Testing database connection');
-			this.db.pragma('journal_mode = WAL'); // Enable WAL mode for better performance
-			this.db.pragma('synchronous = NORMAL'); // Balanced performance/durability
-			this.db.pragma('foreign_keys = ON'); // Enable foreign keys
+			this.db.run('PRAGMA journal_mode = WAL'); // Enable WAL mode for better performance
+			this.db.run('PRAGMA synchronous = NORMAL'); // Balanced performance/durability
+			this.db.run('PRAGMA foreign_keys = ON'); // Enable foreign keys
 
 			// Create tables
 			this.logger.debug('Creating database tables');
@@ -358,9 +358,9 @@ export class SqliteBackend implements DatabaseBackend {
 
 			// Range query for lists
 			getRange: this.db.prepare(`
-				SELECT value FROM lists 
-				WHERE key = ? 
-				ORDER BY position 
+				SELECT value FROM lists
+				WHERE key = ?
+				ORDER BY position
 				LIMIT ? OFFSET ?
 			`),
 			listCount: this.db.prepare('SELECT COUNT(*) as count FROM lists WHERE key = ?'),
@@ -377,18 +377,16 @@ export class SqliteBackend implements DatabaseBackend {
 
 		if (this.connected && this.db) {
 			try {
-				const pragmaResult = this.db.pragma('page_count');
-				const pageCount = Array.isArray(pragmaResult) ? pragmaResult[0] : pragmaResult;
-				const numPageCount = typeof pageCount === 'number' ? pageCount : Number(pageCount);
-				if (!isNaN(numPageCount)) {
-					info.pageCount = numPageCount;
+				const pragmaResult = this.db.query('PRAGMA page_count').get() as any;
+				const pageCount = pragmaResult?.page_count ?? pragmaResult;
+				if (typeof pageCount === 'number') {
+					info.pageCount = pageCount;
 				}
 
-				const pageSizeResult = this.db.pragma('page_size');
-				const pageSize = Array.isArray(pageSizeResult) ? pageSizeResult[0] : pageSizeResult;
-				const numPageSize = typeof pageSize === 'number' ? pageSize : Number(pageSize);
-				if (!isNaN(numPageSize)) {
-					info.pageSize = numPageSize;
+				const pageSizeResult = this.db.query('PRAGMA page_size').get() as any;
+				const pageSize = pageSizeResult?.page_size ?? pageSizeResult;
+				if (typeof pageSize === 'number') {
+					info.pageSize = pageSize;
 				}
 
 				if (info.pageCount && info.pageSize) {
@@ -413,11 +411,10 @@ export class SqliteBackend implements DatabaseBackend {
 			this.db!.exec('ANALYZE');
 
 			// Vacuum to reclaim space (if needed)
-			const freeListResult = this.db!.pragma('freelist_count');
-			const freePages = Array.isArray(freeListResult) ? freeListResult[0] : freeListResult;
-			const freePageCount = typeof freePages === 'number' ? freePages : Number(freePages);
+			const freeListResult = this.db!.query('PRAGMA freelist_count').get() as any;
+			const freePageCount = freeListResult?.freelist_count ?? freeListResult;
 
-			if (freePageCount > 100) {
+			if (typeof freePageCount === 'number' && freePageCount > 100) {
 				this.db!.exec('VACUUM');
 				this.logger.info('Database vacuumed', { freePages: freePageCount });
 			}

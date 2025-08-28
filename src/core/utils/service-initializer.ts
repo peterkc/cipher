@@ -1,35 +1,34 @@
-import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
-import { ContextManager } from '../brain/llm/index.js';
-import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
-import { MCPManager } from '../mcp/manager.js';
-import { SessionManager } from '../session/session-manager.js';
-import { InternalToolManager } from '../brain/tools/manager.js';
-import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
-import { registerAllTools } from '../brain/tools/definitions/index.js';
-import { logger } from '../logger/index.js';
-import { AgentConfig } from '../brain/memAgent/config.js';
-import { ServerConfigsSchema } from '../mcp/config.js';
-import { ServerConfigs } from '../mcp/types.js';
-import { EmbeddingManager } from '../brain/embedding/index.js';
-import { VectorStoreManager, DualCollectionVectorManager } from '../vector_storage/index.js';
-import { createLLMService } from '../brain/llm/services/factory.js';
-import { createContextManager } from '../brain/llm/messages/factory.js';
-import { ILLMService } from '../brain/llm/index.js';
-import { getServiceCache, createServiceKey } from '../brain/memory/service-cache.js';
-import {
-	createVectorStoreFromEnv,
-	createDualCollectionVectorStoreFromEnv,
-	createMultiCollectionVectorStoreFromEnv,
-} from '../vector_storage/factory.js';
-import { KnowledgeGraphManager } from '../knowledge_graph/manager.js';
-import { createKnowledgeGraphFromEnv } from '../knowledge_graph/factory.js';
-import { EventManager } from '../events/event-manager.js';
-import { EventPersistenceConfig } from '../events/persistence.js';
-import { env } from '../env.js';
-import { ProviderType } from '../brain/systemPrompt/interfaces.js';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
+import { EmbeddingManager } from '../brain/embedding/index.js';
+import type { ContextManager, ILLMService } from '../brain/llm/index.js';
+import { createContextManager } from '../brain/llm/messages/factory.js';
+import { createLLMService } from '../brain/llm/services/factory.js';
+import type { AgentConfig } from '../brain/memAgent/config.js';
+import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
+import { createServiceKey, getServiceCache } from '../brain/memory/service-cache.js';
+import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
+import { ProviderType } from '../brain/systemPrompt/interfaces.js';
+import { registerAllTools } from '../brain/tools/definitions/index.js';
+import { InternalToolManager } from '../brain/tools/manager.js';
+import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
+import { env } from '../env.js';
+import { EventManager } from '../events/event-manager.js';
+import type { EventPersistenceConfig } from '../events/persistence.js';
+import { createKnowledgeGraphFromEnv } from '../knowledge_graph/factory.js';
+import { KnowledgeGraphManager } from '../knowledge_graph/manager.js';
+import { logger } from '../logger/index.js';
+import { ServerConfigsSchema } from '../mcp/config.js';
+import { MCPManager } from '../mcp/manager.js';
+import type { ServerConfigs } from '../mcp/types.js';
+import { SessionManager } from '../session/session-manager.js';
+import {
+	createDualCollectionVectorStoreFromEnv,
+	createMultiCollectionVectorStoreFromEnv,
+	createVectorStoreFromEnv,
+} from '../vector_storage/factory.js';
+import { DualCollectionVectorManager, VectorStoreManager } from '../vector_storage/index.js';
 
 /**
  * Create embedding configuration from LLM provider settings

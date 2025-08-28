@@ -1,13 +1,13 @@
-import { randomUUID } from 'crypto';
-import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
-import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
-import { ConversationSession } from './coversation-session.js';
-import { MCPManager } from '../mcp/manager.js';
-import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
 import { logger } from '@core/logger/index.js';
+import { randomUUID } from 'crypto';
+import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
+import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
+import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
 import { EventManager } from '../events/event-manager.js';
 import { SessionEvents } from '../events/event-types.js';
+import { MCPManager } from '../mcp/manager.js';
 import { StorageManager } from '../storage/manager.js';
+import { ConversationSession } from './coversation-session.js';
 import type {
 	SerializedSession,
 	SessionPersistenceConfig,

@@ -7,13 +7,13 @@
  * @module vector_storage/manager
  */
 
-import type { VectorStore, VectorStoreConfig } from './types.js';
-import { VectorStoreSchema } from './config.js';
-import { Logger, createLogger } from '../logger/index.js';
-import { LOG_PREFIXES, ERROR_MESSAGES, TIMEOUTS, BACKEND_TYPES } from './constants.js';
 import { EventManager } from '../events/event-manager.js';
 import { ServiceEvents } from '../events/event-types.js';
+import { createLogger, Logger } from '../logger/index.js';
+import { VectorStoreSchema } from './config.js';
+import { BACKEND_TYPES, ERROR_MESSAGES, LOG_PREFIXES, TIMEOUTS } from './constants.js';
 import { EventAwareVectorStore } from './event-aware-store.js';
+import type { VectorStore, VectorStoreConfig } from './types.js';
 
 /**
  * Health check result for vector store backend

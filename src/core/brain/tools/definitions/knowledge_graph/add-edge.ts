@@ -5,8 +5,8 @@
  * Validates that source and target nodes exist before creating relationships.
  */
 
-import type { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Input schema for the add edge tool

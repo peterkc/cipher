@@ -6,11 +6,11 @@
  * initializer without breaking the current architecture.
  */
 
-import { logger } from '../../logger/index.js';
-import { EmbeddingManager } from '../embedding/index.js';
-import { VectorStoreManager, DualCollectionVectorManager } from '../../vector_storage/index.js';
-import { ILLMService } from '../llm/index.js';
 import { env } from '../../env.js';
+import { logger } from '../../logger/index.js';
+import { DualCollectionVectorManager, VectorStoreManager } from '../../vector_storage/index.js';
+import { EmbeddingManager } from '../embedding/index.js';
+import type { ILLMService } from '../llm/index.js';
 
 /**
  * Configuration for lazy loading services

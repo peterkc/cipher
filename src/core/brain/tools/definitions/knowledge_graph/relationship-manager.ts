@@ -12,9 +12,9 @@
  * - "delete all connections to deprecated services" -> Bulk relationship management
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
+import type { GraphEdge, GraphNode } from '../../../../knowledge_graph/backend/types.js';
 import { logger } from '../../../../logger/index.js';
-import type { GraphNode, GraphEdge } from '../../../../knowledge_graph/backend/types.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Relationship management operation types

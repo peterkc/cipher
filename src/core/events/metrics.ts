@@ -4,7 +4,7 @@
  * Collects and aggregates metrics from events for monitoring and performance analysis.
  */
 
-import { EventEnvelope, ServiceEventMap, SessionEventMap } from './event-types.js';
+import type { EventEnvelope, ServiceEventMap, SessionEventMap } from './event-types.js';
 
 export interface MetricValue {
 	count: number;

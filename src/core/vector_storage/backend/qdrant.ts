@@ -14,11 +14,11 @@
  */
 
 import { QdrantClient } from '@qdrant/js-client-rest';
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { QdrantBackendConfig, SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
 import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult, QdrantBackendConfig } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES } from '../constants.js';
 
 /**
  * Qdrant filter structure

@@ -14,11 +14,11 @@
  * @module storage/backend/in-memory
  */
 
+import { createLogger, Logger } from '../../logger/index.js';
+import { BACKEND_TYPES, ERROR_MESSAGES } from '../constants.js';
 import type { CacheBackend } from './cache-backend.js';
 import type { DatabaseBackend } from './database-backend.js';
 import { StorageError } from './types.js';
-import { BACKEND_TYPES, ERROR_MESSAGES } from '../constants.js';
-import { Logger, createLogger } from '../../logger/index.js';
 
 /**
  * Storage entry with optional expiration

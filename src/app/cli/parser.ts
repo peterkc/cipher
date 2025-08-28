@@ -1,6 +1,6 @@
-import chalk from 'chalk';
-import { MemAgent } from '@core/index.js';
 import { EnhancedPromptManager } from '@core/brain/systemPrompt/enhanced-manager.js';
+import { MemAgent } from '@core/index.js';
+import chalk from 'chalk';
 
 /**
  * Interface for command execution results

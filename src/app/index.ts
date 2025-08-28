@@ -2,6 +2,7 @@
 
 // Fix EventTarget memory leak by setting max listeners early
 import { EventEmitter } from 'events';
+
 EventEmitter.defaultMaxListeners = 20;
 
 // Increase AbortSignal max listeners to prevent memory leak warnings
@@ -17,24 +18,28 @@ if (typeof globalThis !== 'undefined' && globalThis.EventTarget) {
 			}
 			listenerCounts.set(this, currentCount + 1);
 		}
+		// Type guard: listener is required by addEventListener signature
+		if (!listener) {
+			throw new TypeError('addEventListener requires a listener');
+		}
 		return originalAddEventListener.call(this, type, listener, options);
 	};
 }
 
 import { env } from '@core/env.js';
-import { Command } from 'commander';
-import pkg from '../../package.json' with { type: 'json' };
-import { existsSync } from 'fs';
 import { DEFAULT_CONFIG_PATH, logger, MemAgent } from '@core/index.js';
 import { resolveConfigPath } from '@core/utils/path.js';
-import { handleCliOptionsError, validateCliOptions } from './cli/utils/options.js';
-import { loadAgentConfig } from '../core/brain/memAgent/loader.js';
-import { startInteractiveCli, startHeadlessCli, startMcpMode } from './cli/cli.js';
-import { ApiServer } from './api/server.js';
-import { WebServerManager } from './web/web-server.js';
-import path from 'path';
+import { Command } from 'commander';
+import { existsSync } from 'fs';
 import os from 'os';
+import path from 'path';
 import { fileURLToPath } from 'url';
+import pkg from '../../package.json' with { type: 'json' };
+import { loadAgentConfig } from '../core/brain/memAgent/loader.js';
+import { ApiServer } from './api/server.js';
+import { startHeadlessCli, startInteractiveCli, startMcpMode } from './cli/cli.js';
+import { handleCliOptionsError, validateCliOptions } from './cli/utils/options.js';
+import { WebServerManager } from './web/web-server.js';
 
 // Helper function to resolve .env file path
 function resolveEnvPath(): string {

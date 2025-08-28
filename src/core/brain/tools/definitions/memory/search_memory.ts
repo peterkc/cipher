@@ -1,8 +1,8 @@
-import { InternalTool, InternalToolContext } from '../../types.js';
-import { logger } from '../../../../logger/index.js';
-// Import payload migration utilities
-import { KnowledgePayload } from './payloads.js';
 import { env } from '../../../../env.js';
+import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
+// Import payload migration utilities
+import type { KnowledgePayload } from './payloads.js';
 
 /**
  * Memory Search Tool Result Interface

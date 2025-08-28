@@ -18,11 +18,11 @@
  * @module vector_storage/backend/in-memory
  */
 
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { InMemoryBackendConfig, SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreError } from './types.js';
 import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult, InMemoryBackendConfig } from './types.js';
-import { VectorStoreError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES } from '../constants.js';
 
 /**
  * In-memory vector entry
@@ -120,7 +120,7 @@ export class InMemoryBackend implements VectorStore {
 
 		const cloned = {} as T;
 		for (const key in obj) {
-			if (Object.prototype.hasOwnProperty.call(obj, key)) {
+			if (Object.hasOwn(obj, key)) {
 				cloned[key] = this.deepClone(obj[key]);
 			}
 		}

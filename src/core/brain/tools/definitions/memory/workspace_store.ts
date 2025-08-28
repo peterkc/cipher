@@ -1,11 +1,11 @@
-import { InternalTool, InternalToolContext } from '../../types.js';
+import { env } from '../../../../env.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 import {
 	createWorkspacePayload,
 	extractWorkspaceInfo,
 	mergeWorkspaceInfo,
 } from './workspace-payloads.js';
-import { env } from '../../../../env.js';
 
 /**
  * Type definition for LLM-provided workspace information

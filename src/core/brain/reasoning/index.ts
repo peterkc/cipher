@@ -7,12 +7,12 @@
 
 export {
 	ReasoningContentDetector,
-	ReasoningDetectionResult,
 	ReasoningDetectionOptions,
+	ReasoningDetectionResult,
 } from './content-detector.js';
 export {
 	SearchContextManager,
+	SearchContextOptions,
 	SearchResult,
 	SortedContext,
-	SearchContextOptions,
 } from './search-context-manager.js';

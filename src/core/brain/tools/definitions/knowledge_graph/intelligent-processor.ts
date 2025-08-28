@@ -10,9 +10,9 @@
  * - "John works at Google as a software engineer" -> Creates entities and multiple relationships
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
+import type { GraphEdge, GraphNode } from '../../../../knowledge_graph/backend/types.js';
 import { logger } from '../../../../logger/index.js';
-import type { GraphNode, GraphEdge } from '../../../../knowledge_graph/backend/types.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Configuration for intelligent processing

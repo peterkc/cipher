@@ -312,6 +312,59 @@ For detailed documentation, visit:
 
 We welcome contributions! Refer to our [Contributing Guide](./CONTRIBUTING.md) for more details.
 
+## Development
+
+### Recent Updates
+
+#### ✅ Vitest to Bun Test Migration (December 2024)
+
+The project has been successfully migrated from Vitest to Bun's native test runner:
+
+- **96 test files** converted from Vitest to Bun test
+- **All tests passing** (100% success rate)
+- **Improved performance** with faster test execution
+- **Reduced dependencies** by removing Vitest and @vitest/coverage-v8
+- **Modern tooling** aligned with Bun runtime environment
+
+**Key Changes:**
+- Import statements: `from 'vitest'` → `from 'bun:test'`
+- Mock functions: `vi.fn()` → `mock()`
+- Module mocking: `vi.mock()` → `mock.module()`
+- Spy functions: `vi.spyOn()` → `spyOn()`
+- Configuration: Removed `vitest.config.ts`, updated `package.json` scripts
+- TypeScript: Updated imports in `tsconfig.json`
+
+**Running Tests:**
+```bash
+# Run all tests
+bun test
+
+# Run specific test file
+bun test src/path/to/test.ts
+
+# Run with coverage (built-in)
+bun test --coverage
+```
+
+**Development Commands:**
+```bash
+# Install dependencies
+bun install
+
+# Run in development mode
+bun dev
+
+# Build the project
+bun run build
+
+# Type checking
+bun run typecheck
+
+# Linting and formatting
+bun run check
+bun run format
+```
+
 ## Community & Support
 
 **cipher** is the opensource version of the agentic memory of [byterover](https://byterover.dev/) which is built and maintained by the byterover team.

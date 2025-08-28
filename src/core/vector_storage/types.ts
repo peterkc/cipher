@@ -37,12 +37,11 @@
  * the vector storage module without exposing internal implementation details.
  */
 export type {
-	// Core interfaces
-	VectorStore, // Interface for vector store implementations
-	VectorStoreResult, // Search result structure
-	SearchFilters, // Metadata filters for search
-
 	// Configuration types
 	BackendConfig, // Union type for all backend configurations
+	SearchFilters, // Metadata filters for search
+	// Core interfaces
+	VectorStore, // Interface for vector store implementations
 	VectorStoreConfig, // Top-level vector storage system configuration
+	VectorStoreResult, // Search result structure
 } from './backend/types.js';

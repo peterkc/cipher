@@ -1,12 +1,13 @@
-import { Router, Request, Response } from 'express';
 import { MemAgent } from '@core/brain/memAgent/index.js';
-import { successResponse, errorResponse, ERROR_CODES } from '../utils/response.js';
+import { logger } from '@core/logger/index.js';
+import type { Request, Response } from 'express';
+import { Router } from 'express';
 import {
-	validateSessionId,
 	validateCreateSession,
 	validateListParams,
+	validateSessionId,
 } from '../middleware/validation.js';
-import { logger } from '@core/logger/index.js';
+import { ERROR_CODES, errorResponse, successResponse } from '../utils/response.js';
 
 export function createSessionRoutes(agent: MemAgent): Router {
 	const router = Router();

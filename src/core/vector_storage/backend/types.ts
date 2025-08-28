@@ -15,15 +15,15 @@ export type { VectorStore };
 // Re-export configuration types from the config module
 export type {
 	BackendConfig,
-	VectorStoreConfig,
-	InMemoryBackendConfig,
-	QdrantBackendConfig,
-	MilvusBackendConfig,
 	ChromaBackendConfig,
+	FaissBackendConfig,
+	InMemoryBackendConfig,
+	MilvusBackendConfig,
 	PgVectorBackendConfig,
 	PineconeBackendConfig,
+	QdrantBackendConfig,
 	RedisBackendConfig,
-	FaissBackendConfig,
+	VectorStoreConfig,
 	WeaviateBackendConfig,
 } from '../config.js';
 

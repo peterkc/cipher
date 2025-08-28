@@ -6,34 +6,32 @@
  */
 
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import { Transport } from '@modelcontextprotocol/sdk/shared/transport.js';
-import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { SSEClientTransport } from '@modelcontextprotocol/sdk/client/sse.js';
+import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
-import { GetPromptResult, ReadResourceResult } from '@modelcontextprotocol/sdk/types.js';
-import * as path from 'path';
+import type { Transport } from '@modelcontextprotocol/sdk/shared/transport.js';
+import type { GetPromptResult, ReadResourceResult } from '@modelcontextprotocol/sdk/types.js';
 import * as fs from 'fs';
+import * as path from 'path';
 import { fileURLToPath } from 'url';
-
-import type {
-	IMCPClient,
-	McpServerConfig,
-	StdioServerConfig,
-	SseServerConfig,
-	StreamableHttpServerConfig,
-	ToolSet,
-	ToolExecutionResult,
-} from './types.js';
+import { createLogger, Logger } from '../logger/index.js';
 
 import {
 	DEFAULT_TIMEOUT_MS,
+	ENV_VARS,
 	ERROR_MESSAGES,
 	LOG_PREFIXES,
 	TRANSPORT_TYPES,
-	ENV_VARS,
 } from './constants.js';
-
-import { Logger, createLogger } from '../logger/index.js';
+import type {
+	IMCPClient,
+	McpServerConfig,
+	SseServerConfig,
+	StdioServerConfig,
+	StreamableHttpServerConfig,
+	ToolExecutionResult,
+	ToolSet,
+} from './types.js';
 
 /**
  * Implementation of the IMCPClient interface for managing connections to MCP servers.

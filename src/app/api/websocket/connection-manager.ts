@@ -1,11 +1,11 @@
-import { WebSocket } from 'ws';
-import { v4 as uuidv4 } from 'uuid';
 import { logger } from '@core/logger/index.js';
+import { v4 as uuidv4 } from 'uuid';
+import { WebSocket } from 'ws';
 import {
 	WebSocketConnection,
-	WebSocketResponse,
 	WebSocketConnectionStats,
 	WebSocketEventType,
+	WebSocketResponse,
 } from './types.js';
 
 export class WebSocketConnectionManager {

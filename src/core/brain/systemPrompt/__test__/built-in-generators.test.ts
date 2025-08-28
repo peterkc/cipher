@@ -59,7 +59,11 @@ describe('Built-in Dynamic Content Generators', () => {
 		it('should include timezone when requested', async () => {
 			const config = { format: 'locale', includeTimezone: true };
 			const result = await timestampGenerator(mockContext, config);
-			expect(result.includes('GMT') || result.includes('UTC')).toBe(true);
+
+			// Check for any timezone indicator (GMT, UTC, PST, PDT, EST, etc.)
+			// The exact timezone depends on the system's locale settings
+			const hasTimezone = /\b(GMT|UTC|PST|PDT|EST|EDT|CST|CDT|MST|MDT|[A-Z]{3,4})\b/.test(result);
+			expect(hasTimezone).toBe(true);
 		});
 	});
 

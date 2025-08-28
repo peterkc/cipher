@@ -1,22 +1,22 @@
+import { logger } from '../../../../logger/index.js';
 import {
-	ICompressionStrategy,
 	CompressionConfig,
+	CompressionLevel,
 	CompressionResult,
 	EnhancedInternalMessage,
-	CompressionLevel,
+	ICompressionStrategy,
 } from '../types.js';
 import {
 	assignMessagePriorities,
-	getPreservableMessages,
-	getRemovableMessages,
-	sortMessagesByRemovalPriority,
 	calculateTotalTokens,
 	createCompressionResult,
-	validateCompressionResult,
-	logCompressionOperation,
 	ensureMessageIds,
+	getPreservableMessages,
+	getRemovableMessages,
+	logCompressionOperation,
+	sortMessagesByRemovalPriority,
+	validateCompressionResult,
 } from '../utils.js';
-import { logger } from '../../../../logger/index.js';
 
 /**
  * Oldest Removal Strategy

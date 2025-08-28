@@ -4,10 +4,10 @@
  * Provides persistent storage for events to enable debugging, monitoring, and replay capabilities.
  */
 
-import { EventEnvelope } from './event-types.js';
-import { logger } from '../logger/logger.js';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { logger } from '../logger/logger.js';
+import type { EventEnvelope } from './event-types.js';
 
 export interface EventPersistenceConfig {
 	enabled: boolean;

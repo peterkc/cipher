@@ -1,11 +1,11 @@
-import { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 // import { SessionEmbeddingState } from '../../../embedding/manager.js';
 // Import helpers from memory_operation
 import {
-	parseLLMDecision,
-	MEMORY_OPERATION_PROMPTS,
 	extractTechnicalTags,
+	MEMORY_OPERATION_PROMPTS,
+	parseLLMDecision,
 } from './memory_operation.js';
 // Import payload migration utilities
 import { createKnowledgePayload, extractKnowledgeInfo, mergeKnowledgeInfo } from './payloads.js';

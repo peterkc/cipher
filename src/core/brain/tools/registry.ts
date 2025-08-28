@@ -7,10 +7,10 @@
 
 import { logger } from '../../logger/index.js';
 import {
-	InternalTool,
-	InternalToolSet,
-	InternalToolCategory,
 	createInternalToolName,
+	InternalTool,
+	InternalToolCategory,
+	InternalToolSet,
 } from './types.js';
 
 /**

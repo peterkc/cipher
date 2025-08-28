@@ -4,11 +4,10 @@
  * Forwards events to external systems via HTTP webhooks for integrations and monitoring.
  */
 
-import { EventEnvelope, EventFilter } from './event-types.js';
-import { logger } from '../logger/logger.js';
-
 // Import fetch and Response for Node.js compatibility
 import { fetch, Response } from 'undici';
+import { logger } from '../logger/logger.js';
+import type { EventEnvelope, EventFilter } from './event-types.js';
 
 export interface WebhookConfig {
 	url: string;

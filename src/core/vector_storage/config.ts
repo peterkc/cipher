@@ -19,6 +19,7 @@
  * @module vector_storage/config
  */
 
+import { context } from '@pinecone-database/pinecone/dist/assistant/data/context.js';
 import { z } from 'zod';
 import { DEFAULTS, DISTANCE_METRICS } from './constants.js';
 

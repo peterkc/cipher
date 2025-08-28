@@ -1,8 +1,8 @@
-import { LLMConfig } from '../llm/config.js';
-import { AgentConfig } from './config.js';
 import { logger } from '../../logger/index.js';
+import type { McpServerConfig } from '../../mcp/types.js';
 import { McpServerValidationResult, validateMcpServerConfig } from '../../mcp/validation.js';
-import { McpServerConfig } from '../../mcp/types.js';
+import type { LLMConfig } from '../llm/config.js';
+import type { AgentConfig } from './config.js';
 
 export interface SessionOverride {
 	/** Override LLM config for this session */

@@ -1,5 +1,5 @@
-import { ToolSet } from '../../../mcp/types.js';
-import { ImageData } from '../messages/types.js';
+import type { ToolSet } from '../../../mcp/types.js';
+import type { ImageData } from '../messages/types.js';
 
 /**
  * The LLMService interface provides a contract for interacting with an LLM service.

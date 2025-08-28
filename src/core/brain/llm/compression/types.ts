@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { InternalMessage } from '../messages/types.js';
+import type { InternalMessage } from '../messages/types.js';
 
 /**
  * Configuration schema for compression settings

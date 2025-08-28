@@ -4,12 +4,12 @@
  * Provides convenient commands for testing event features during development.
  */
 
+import { logger } from '../logger/logger.js';
 import { EventManager } from './event-manager.js';
+import { ServiceEvents, SessionEvents } from './event-types.js';
+import { EventMetricsCollector, MetricsExporter } from './metrics.js';
 import { EventPersistence, EventQuery } from './persistence.js';
 import { EventReplay, ReplayAnalyzer } from './replay.js';
-import { EventMetricsCollector, MetricsExporter } from './metrics.js';
-import { ServiceEvents, SessionEvents } from './event-types.js';
-import { logger } from '../logger/logger.js';
 
 export class EventCliTools {
 	private eventManager: EventManager;
@@ -139,12 +139,7 @@ export class EventCliTools {
 	 * Test event replay functionality
 	 */
 	async testEventReplay(
-		options: {
-			sessionId?: string;
-			eventTypes?: string[];
-			since?: number;
-			speed?: number;
-		} = {}
+		options: { sessionId?: string; eventTypes?: string[]; since?: number; speed?: number } = {}
 	): Promise<void> {
 		logger.info('Starting event replay test...', options);
 

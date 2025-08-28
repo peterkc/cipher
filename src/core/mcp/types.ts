@@ -6,7 +6,7 @@
  */
 
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import { GetPromptResult, ReadResourceResult } from '@modelcontextprotocol/sdk/types.js';
+import type { GetPromptResult, ReadResourceResult } from '@modelcontextprotocol/sdk/types.js';
 
 // ======================================================
 // Transport and Connection Types

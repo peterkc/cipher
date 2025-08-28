@@ -1,6 +1,6 @@
-import { ITokenizer, TokenizerConfig } from './types.js';
-import { logger } from '../../../logger/index.js';
 import crypto from 'crypto';
+import { logger } from '../../../logger/index.js';
+import type { ITokenizer, TokenizerConfig } from './types.js';
 
 /**
  * Thread-safe singleton cache for tokenizer instances

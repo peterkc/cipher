@@ -3,26 +3,26 @@ import {
 	BedrockRuntimeClientConfig,
 	InvokeModelCommand,
 } from '@aws-sdk/client-bedrock-runtime';
-import { ILLMService, LLMServiceConfig } from './types.js';
-import { AwsConfig } from '../config.js';
-import { MCPManager } from '../../../mcp/manager.js';
-import { ContextManager } from '../messages/manager.js';
-import { UnifiedToolManager, CombinedToolSet } from '../../tools/unified-tool-manager.js';
-import { ImageData } from '../messages/types.js';
-import { ToolSet } from '../../../mcp/types.js';
-import { logger } from '../../../logger/index.js';
-import { formatToolResult } from '../utils/tool-result-formatter.js';
 import { TextDecoder } from 'util';
-import {
-	BedrockAnthropicMessageFormatter,
-	BedrockLlamaMessageFormatter,
-	BedrockTitanMessageFormatter,
-	BedrockDeepSeekMessageFormatter,
-	BedrockAI21MessageFormatter,
-} from '../messages/formatters/aws.js';
+import { v4 as uuidv4 } from 'uuid';
 import { EventManager } from '../../../events/event-manager.js';
 import { SessionEvents } from '../../../events/event-types.js';
-import { v4 as uuidv4 } from 'uuid';
+import { logger } from '../../../logger/index.js';
+import { MCPManager } from '../../../mcp/manager.js';
+import type { ToolSet } from '../../../mcp/types.js';
+import type { CombinedToolSet, UnifiedToolManager } from '../../tools/unified-tool-manager.js';
+import type { AwsConfig } from '../config.js';
+import {
+	BedrockAI21MessageFormatter,
+	BedrockAnthropicMessageFormatter,
+	BedrockDeepSeekMessageFormatter,
+	BedrockLlamaMessageFormatter,
+	BedrockTitanMessageFormatter,
+} from '../messages/formatters/aws.js';
+import { ContextManager } from '../messages/manager.js';
+import type { ImageData } from '../messages/types.js';
+import { formatToolResult } from '../utils/tool-result-formatter.js';
+import type { ILLMService, LLMServiceConfig } from './types.js';
 
 // Complete AWS Bedrock model families (2025)
 enum ModelFamily {

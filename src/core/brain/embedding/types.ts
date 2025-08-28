@@ -37,15 +37,14 @@
  * the embedding module without exposing internal implementation details.
  */
 export type {
+	BackendConfig, // Union type for all provider configurations
+	BatchEmbeddingResult, // Batch embedding result with metadata
 	// Core interfaces
 	Embedder, // Interface for embedding providers
 	EmbeddingConfig, // Base configuration interface
-	OpenAIEmbeddingConfig, // OpenAI-specific configuration
-	BackendConfig, // Union type for all provider configurations
-
 	// Result types
 	EmbeddingResult, // Single embedding result with metadata
-	BatchEmbeddingResult, // Batch embedding result with metadata
+	OpenAIEmbeddingConfig, // OpenAI-specific configuration
 } from './backend/types.js';
 
 /**
@@ -54,34 +53,13 @@ export type {
  * Comprehensive error hierarchy for embedding operations.
  */
 export {
-	EmbeddingError, // Base error class
 	EmbeddingConnectionError, // Connection-related errors
 	EmbeddingDimensionError, // Dimension mismatch errors
-	EmbeddingRateLimitError, // Rate limiting errors
+	EmbeddingError, // Base error class
 	EmbeddingQuotaError, // Quota exceeded errors
+	EmbeddingRateLimitError, // Rate limiting errors
 	EmbeddingValidationError, // Input validation errors
 } from './backend/types.js';
-
-/**
- * Re-export factory types
- *
- * Types related to embedding factory functionality.
- */
-export type {
-	EmbeddingFactory, // Factory interface for creating embedders
-} from './factory.js';
-
-/**
- * Re-export manager types
- *
- * Types related to embedding lifecycle management.
- */
-export type {
-	HealthCheckResult, // Health check result structure
-	EmbedderInfo, // Information about embedder instances
-	EmbeddingStats, // Statistics about embedding operations
-} from './manager.js';
-
 /**
  * Re-export configuration types and utilities
  *
@@ -90,3 +68,21 @@ export type {
 export type {
 	EmbeddingEnvConfig, // Environment-based configuration
 } from './config.js';
+/**
+ * Re-export factory types
+ *
+ * Types related to embedding factory functionality.
+ */
+export type {
+	EmbeddingFactory, // Factory interface for creating embedders
+} from './factory.js';
+/**
+ * Re-export manager types
+ *
+ * Types related to embedding lifecycle management.
+ */
+export type {
+	EmbedderInfo, // Information about embedder instances
+	EmbeddingStats, // Statistics about embedding operations
+	HealthCheckResult, // Health check result structure
+} from './manager.js';

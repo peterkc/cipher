@@ -7,13 +7,13 @@
  * @module knowledge_graph/factory
  */
 
-import { KnowledgeGraphManager } from './manager.js';
+import { env } from '../env.js';
+import { createLogger } from '../logger/logger.js';
 import type { KnowledgeGraph } from './backend/knowledge-graph.js';
 import type { KnowledgeGraphConfig } from './config.js';
 import { parseKnowledgeGraphConfigFromEnv } from './config.js';
-import { createLogger } from '../logger/logger.js';
-import { LOG_PREFIXES, BACKEND_TYPES, DEFAULTS } from './constants.js';
-import { env } from '../env.js';
+import { BACKEND_TYPES, DEFAULTS, LOG_PREFIXES } from './constants.js';
+import { KnowledgeGraphManager } from './manager.js';
 
 /**
  * Factory result containing both the manager and knowledge graph

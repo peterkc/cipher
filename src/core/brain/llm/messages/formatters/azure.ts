@@ -1,6 +1,6 @@
-import { InternalMessage } from '../types.js';
+import type { InternalMessage } from '../types.js';
 import { getImageData } from '../utils.js';
-import { IMessageFormatter } from './types.js';
+import type { IMessageFormatter } from './types.js';
 
 /**
  * Message formatter for Azure OpenAI

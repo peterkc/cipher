@@ -5,8 +5,8 @@
  * Supports different query types including Cypher-like queries and structured queries.
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
 import type { GraphQuery } from '../../../../knowledge_graph/backend/types.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Query graph tool for executing custom queries against the knowledge graph

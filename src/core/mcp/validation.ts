@@ -1,6 +1,6 @@
 import { ZodError } from 'zod';
 import { McpServerConfigSchema } from './config.js';
-import { McpServerConfig } from './types.js';
+import type { McpServerConfig } from './types.js';
 
 export type ValidationErrorType =
 	| 'missing_api_key'

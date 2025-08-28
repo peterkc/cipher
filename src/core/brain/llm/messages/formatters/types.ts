@@ -1,4 +1,4 @@
-import { InternalMessage } from '../types.js';
+import type { InternalMessage } from '../types.js';
 
 export interface IMessageFormatter {
 	/**

@@ -1,8 +1,8 @@
-import { logger } from '../../logger/index.js';
-import { AgentConfig } from './config.js';
-import { parse as parseYaml } from 'yaml';
 import { promises as fs } from 'fs';
+import { parse as parseYaml } from 'yaml';
 import { env } from '../../env.js';
+import { logger } from '../../logger/index.js';
+import type { AgentConfig } from './config.js';
 
 function expandEnvVars(config: any): any {
 	if (typeof config === 'string') {

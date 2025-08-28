@@ -5,7 +5,7 @@
  * collaboration, project progress tracking, and shared context.
  */
 
-import { BasePayload } from './payloads.js';
+import type { BasePayload } from './payloads.js';
 
 /**
  * Workspace Memory Payload - For team and project information

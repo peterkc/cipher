@@ -33,6 +33,8 @@ export default defineConfig([
 			'util',
 			'events',
 			'child_process',
+			'bun:sqlite',
+			'sqlite',
 		],
 		noExternal: ['chalk', 'boxen', 'commander'],
 	},

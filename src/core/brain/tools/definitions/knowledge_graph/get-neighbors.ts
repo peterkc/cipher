@@ -5,7 +5,7 @@
  * Supports filtering by edge types and limiting the number of results.
  */
 
-import { InternalTool } from '../../types.js';
+import type { InternalTool } from '../../types.js';
 
 /**
  * Input schema for the get neighbors tool

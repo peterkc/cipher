@@ -1,5 +1,5 @@
-import { IConversationHistoryProvider } from './types.js';
-import { InternalMessage } from '../types.js';
+import type { InternalMessage } from '../types.js';
+import type { IConversationHistoryProvider } from './types.js';
 
 interface WALEntry {
 	sessionId: string;

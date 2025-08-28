@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import { v4 as uuidv4 } from 'uuid';
 import { logger } from '@core/logger/index.js';
+import type { NextFunction, Request, Response } from 'express';
+import { v4 as uuidv4 } from 'uuid';
 
 // Extend Express Request interface to include requestId
 declare global {

@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import { body, param, query, validationResult } from 'express-validator';
-import { errorResponse, ERROR_CODES } from '../utils/response.js';
-import { sanitizeInput, isValidSessionId } from '../utils/security.js';
+import { ERROR_CODES, errorResponse } from '../utils/response.js';
+import { isValidSessionId, sanitizeInput } from '../utils/security.js';
 
 /**
  * Middleware to check validation results and return error if validation failed
@@ -157,7 +157,10 @@ export const validateLlmConfig = [
 		.withMessage('Model must be between 1 and 100 characters'),
 	body('config').optional().isObject().withMessage('Config must be an object'),
 	// AWS-specific validations
-	body('config.aws.region').optional().isString().withMessage('AWS region must be a string'),
+	body('config.aws.region')
+		.optional()
+		.isString()
+		.withMessage('AWS region must be a string'),
 	body('config.aws.accessKeyId')
 		.optional()
 		.isString()

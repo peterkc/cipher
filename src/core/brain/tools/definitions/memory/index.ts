@@ -5,36 +5,32 @@
  * These tools handle fact extraction, knowledge processing, memory operations, and memory search.
  */
 
+import { env } from '../../../../env.js';
+import { logger } from '../../../../logger/index.js';
+// Import lazy loading optimized tool
+import { lazyExtractAndOperateMemoryTool } from '../../../memory/lazy-extract-and-operate.js';
+// Import reasoning tools from reflective memory module
+import {
+	evaluateReasoning,
+	extractReasoningSteps,
+	searchReasoningPatterns,
+} from '../../def_reflective_memory_tools.js';
+// Import types
+import type { InternalTool } from '../../types.js';
 // Export all memory tools
 // export { extractKnowledgeTool } from './extract-knowledge.js';
 // export { memoryOperationTool } from './memory_operation.js';
 import { extractAndOperateMemoryTool } from './extract_and_operate_memory.js';
 import { searchMemoryTool } from './search_memory.js';
 import { storeReasoningMemoryTool } from './store_reasoning_memory.js';
-
-// Import lazy loading optimized tool
-import { lazyExtractAndOperateMemoryTool } from '../../../memory/lazy-extract-and-operate.js';
-import { env } from '../../../../env.js';
-
-// Import reasoning tools from reflective memory module
-import {
-	extractReasoningSteps,
-	evaluateReasoning,
-	searchReasoningPatterns,
-} from '../../def_reflective_memory_tools.js';
-
 // Import workspace memory tools
 import {
-	getWorkspaceTools,
 	getAllWorkspaceToolDefinitions,
-	shouldDisableDefaultMemory,
+	getWorkspaceTools,
 	logWorkspaceMemoryStatus,
+	shouldDisableDefaultMemory,
 	WORKSPACE_TOOL_INFO,
 } from './workspace-tools.js';
-
-// Import types
-import type { InternalTool } from '../../types.js';
-import { logger } from '../../../../logger/index.js';
 
 // Shared constants
 const EMBEDDING_DEPENDENT_TOOLS = [
@@ -58,10 +54,10 @@ export {
 
 // Export workspace memory tools
 export {
-	getWorkspaceTools,
 	getAllWorkspaceToolDefinitions,
-	shouldDisableDefaultMemory,
+	getWorkspaceTools,
 	logWorkspaceMemoryStatus,
+	shouldDisableDefaultMemory,
 } from './workspace-tools.js';
 
 // Array of all memory tools (dynamic based on LLM context)

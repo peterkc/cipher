@@ -6,11 +6,11 @@
  */
 
 import { logger } from '../../logger/index.js';
+import { MCPManager } from '../../mcp/manager.js';
 import { ILLMService, LLMConfig } from '../llm/index.js';
 import { createContextManager } from '../llm/messages/factory.js';
 import { createLLMService } from '../llm/services/factory.js';
 import { EnhancedPromptManager } from '../systemPrompt/enhanced-manager.js';
-import { MCPManager } from '../../mcp/manager.js';
 import { UnifiedToolManager } from '../tools/unified-tool-manager.js';
 
 export interface ReasoningDetectionResult {

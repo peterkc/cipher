@@ -1,8 +1,8 @@
-import { spawn, ChildProcess } from 'child_process';
+import { logger } from '@core/logger/index.js';
+import { ChildProcess, spawn } from 'child_process';
 import { existsSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { logger } from '@core/logger/index.js';
 
 export interface WebServerConfig {
 	port: number;

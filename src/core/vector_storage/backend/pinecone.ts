@@ -14,11 +14,11 @@
  */
 
 import { Pinecone } from '@pinecone-database/pinecone';
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { PineconeBackendConfig, SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
 import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult, PineconeBackendConfig } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES } from '../constants.js';
 
 /**
  * Pinecone filter structure

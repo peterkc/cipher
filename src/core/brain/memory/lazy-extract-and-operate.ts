@@ -5,18 +5,17 @@
  * to defer expensive operations until they are actually needed.
  */
 
-import { InternalTool, InternalToolContext } from '../tools/types.js';
+import { env } from '../../env.js';
 import { logger } from '../../logger/index.js';
-import {
-	getEmbeddingManager,
-	getVectorStoreManager,
-	getLLMService,
-	LazyAgentServices,
-} from './enhanced-service-initializer.js';
-
 // Import the original tool's functionality
 import { extractAndOperateMemoryTool } from '../tools/definitions/memory/extract_and_operate_memory.js';
-import { env } from '../../env.js';
+import { InternalTool, InternalToolContext } from '../tools/types.js';
+import {
+	getEmbeddingManager,
+	getLLMService,
+	getVectorStoreManager,
+	LazyAgentServices,
+} from './enhanced-service-initializer.js';
 
 /**
  * Lazy loading configuration for memory operations

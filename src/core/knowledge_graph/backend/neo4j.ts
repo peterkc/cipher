@@ -8,6 +8,7 @@
  */
 
 import neo4j from 'neo4j-driver';
+
 // TODO: Install neo4j-driver package: pnpm install neo4j-driver
 type Driver = any;
 type Session = any;
@@ -21,25 +22,25 @@ type Session = any;
 // 		throw new Error('neo4j-driver package not installed. Please run: npm install neo4j-driver');
 // 	},
 // };
-import { Logger, createLogger } from '../../logger/logger.js';
+import { createLogger, Logger } from '../../logger/logger.js';
+import type { Neo4jBackendConfig } from '../config.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
 import type { KnowledgeGraph } from './knowledge-graph.js';
 import type {
-	GraphNode,
+	EdgeFilters,
 	GraphEdge,
+	GraphNode,
 	GraphQuery,
 	GraphResult,
 	NodeFilters,
-	EdgeFilters,
 } from './types.js';
 import {
+	EdgeNotFoundError,
+	GraphValidationError,
+	InvalidQueryError,
 	KnowledgeGraphConnectionError,
 	NodeNotFoundError,
-	EdgeNotFoundError,
-	InvalidQueryError,
-	GraphValidationError,
 } from './types.js';
-import type { Neo4jBackendConfig } from '../config.js';
-import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
 
 /**
  * Neo4j Knowledge Graph Backend

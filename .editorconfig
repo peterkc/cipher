@@ -1,0 +1,22 @@
+# https://EditorConfig.org
+# Remove the line below if you want to inherit .editorconfig settings from higher directories
+root = true
+
+[*]
+
+#### Core EditorConfig Options ####
+charset = utf-8
+
+# Indentation and spacing
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# New line preferences
+end_of_line = lf
+insert_final_newline = false
+trim_trailing_whitespace = true
+
+[{Dockerfile,*.dockerfile,*.hcl}]
+indent_size = 2
+tab_width = 2

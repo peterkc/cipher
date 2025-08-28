@@ -1,28 +1,28 @@
+import { setImmediate } from 'timers';
+import type { ZodSchema } from 'zod';
 import { ContextManager, ILLMService } from '../brain/llm/index.js';
-import { MCPManager } from '../mcp/manager.js';
-import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
-import { logger } from '../logger/index.js';
-import { env } from '../env.js';
 import { createContextManager } from '../brain/llm/messages/factory.js';
+import { AnthropicMessageFormatter } from '../brain/llm/messages/formatters/anthropic.js';
+import { AzureMessageFormatter } from '../brain/llm/messages/formatters/azure.js';
+import { OpenAIMessageFormatter } from '../brain/llm/messages/formatters/openai.js';
+import { IMessageFormatter } from '../brain/llm/messages/formatters/types.js';
+import {
+	createDatabaseHistoryProvider,
+	createMultiBackendHistoryProvider,
+} from '../brain/llm/messages/history/factory.js';
+import { IConversationHistoryProvider } from '../brain/llm/messages/history/types.js';
+import { WALHistoryProvider } from '../brain/llm/messages/history/wal.js';
 import { createLLMService } from '../brain/llm/services/factory.js';
 import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
 import { ReasoningContentDetector } from '../brain/reasoning/content-detector.js';
 import { SearchContextManager } from '../brain/reasoning/search-context-manager.js';
-import {
-	createMultiBackendHistoryProvider,
-	createDatabaseHistoryProvider,
-} from '../brain/llm/messages/history/factory.js';
-import { WALHistoryProvider } from '../brain/llm/messages/history/wal.js';
+import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
+import { env } from '../env.js';
+import { logger } from '../logger/index.js';
+import { MCPManager } from '../mcp/manager.js';
 import { StorageManager } from '../storage/manager.js';
-import type { ZodSchema } from 'zod';
-import { setImmediate } from 'timers';
-import { IConversationHistoryProvider } from '../brain/llm/messages/history/types.js';
 import type { SerializedSession } from './persistence-types.js';
 import { SESSION_PERSISTENCE_CONSTANTS, SessionPersistenceError } from './persistence-types.js';
-import { IMessageFormatter } from '../brain/llm/messages/formatters/types.js';
-import { OpenAIMessageFormatter } from '../brain/llm/messages/formatters/openai.js';
-import { AzureMessageFormatter } from '../brain/llm/messages/formatters/azure.js';
-import { AnthropicMessageFormatter } from '../brain/llm/messages/formatters/anthropic.js';
 
 // This function is currently unused but kept for potential future use
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -56,6 +56,7 @@ function extractReasoningContentBlocks(aiResponse: any): string {
 	}
 	return '';
 }
+
 import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
 export class ConversationSession {
 	private contextManager!: ContextManager;

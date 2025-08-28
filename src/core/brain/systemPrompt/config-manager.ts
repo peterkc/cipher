@@ -7,7 +7,7 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import { SystemPromptConfig, ProviderConfig, ProviderType } from './interfaces.js';
+import { ProviderConfig, ProviderType, SystemPromptConfig } from './interfaces.js';
 
 export interface ConfigLoadOptions {
 	/** Base directory for resolving relative file paths */

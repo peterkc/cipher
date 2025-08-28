@@ -14,65 +14,61 @@
  * @module storage
  */
 
-// Core exports
-export { StorageManager } from './manager.js';
-export type { HealthCheckResult, StorageInfo } from './manager.js';
-
-// Type exports
+// Backend implementations
+export { InMemoryBackend } from './backend/in-memory.js';
+// Error exports
+export { StorageConnectionError, StorageError, StorageNotFoundError } from './backend/types.js';
 export type {
-	CacheBackend,
-	DatabaseBackend,
-	StorageBackends,
-	BackendConfig,
-	StorageConfig,
-} from './types.js';
+	InMemoryBackendConfig,
+	PostgresBackendConfig,
+	RedisBackendConfig,
+	SqliteBackendConfig,
+} from './config.js';
 
 // Configuration exports
 export { StorageSchema } from './config.js';
-export type {
-	InMemoryBackendConfig,
-	RedisBackendConfig,
-	SqliteBackendConfig,
-	PostgresBackendConfig,
-} from './config.js';
-
-// Error exports
-export { StorageError, StorageConnectionError, StorageNotFoundError } from './backend/types.js';
-
 // Constants exports (for external use if needed)
 export {
-	LOG_PREFIXES,
-	ERROR_MESSAGES,
 	BACKEND_TYPES,
-	TIMEOUTS,
-	HEALTH_CHECK,
 	DEFAULTS,
+	ERROR_MESSAGES,
+	HEALTH_CHECK,
+	LOG_PREFIXES,
+	TIMEOUTS,
 } from './constants.js';
-
-// Backend implementations
-export { InMemoryBackend } from './backend/in-memory.js';
-// Redis and SQLite backends will be loaded lazily
-
-// Memory History Service exports
-export {
-	MemoryHistoryStorageService,
-	createMemoryHistoryService,
-	createMemoryHistoryEntry,
-} from './memory-history/index.js';
+export type { HealthCheckResult, StorageInfo } from './manager.js';
+// Core exports
+export { StorageManager } from './manager.js';
+// Type exports
 export type {
-	MemoryHistoryEntry,
-	MemoryHistoryService,
-	HistoryFilters,
-	QueryOptions,
-	OperationStats,
-	MemoryOperation,
-} from './memory-history/index.js';
+	BackendConfig,
+	CacheBackend,
+	DatabaseBackend,
+	StorageBackends,
+	StorageConfig,
+} from './types.js';
+
+// Redis and SQLite backends will be loaded lazily
 
 // Factory functions
 export {
-	createStorageBackends,
 	createDefaultStorage,
+	createStorageBackends,
 	createStorageFromEnv,
 	isStorageFactory,
 	type StorageFactory,
 } from './factory.js';
+export type {
+	HistoryFilters,
+	MemoryHistoryEntry,
+	MemoryHistoryService,
+	MemoryOperation,
+	OperationStats,
+	QueryOptions,
+} from './memory-history/index.js';
+// Memory History Service exports
+export {
+	createMemoryHistoryEntry,
+	createMemoryHistoryService,
+	MemoryHistoryStorageService,
+} from './memory-history/index.js';

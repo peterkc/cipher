@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseHistoryProvider } from '../database.js';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { InMemoryBackend } from '../../../../../storage/backend/in-memory.js';
 import { StorageManager } from '../../../../../storage/manager.js';
 import type { InternalMessage } from '../../types.js';
-import { InMemoryBackend } from '../../../../../storage/backend/in-memory.js';
+import { DatabaseHistoryProvider } from '../database.js';
 
 // const mockLogger = { error: () => {}, warn: () => {}, debug: () => {} };
 

@@ -1,9 +1,9 @@
-import { MemAgent, logger } from '@core/index.js';
-import * as readline from 'readline';
+import { logger, MemAgent } from '@core/index.js';
+import type { AggregatorConfig } from '@core/mcp/types.js';
 import chalk from 'chalk';
+import * as readline from 'readline';
 import { executeCommand } from './commands.js';
 import { commandParser } from './parser.js';
-import type { AggregatorConfig } from '@core/mcp/types.js';
 
 // Constants for compression display
 const COMPRESSION_CHECK_DELAY = 100;

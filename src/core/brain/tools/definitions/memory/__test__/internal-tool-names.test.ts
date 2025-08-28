@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { logger } from '../../../../../logger/index.js';
 import { InternalToolManager } from '../../../manager.js';
 import { UnifiedToolManager } from '../../../unified-tool-manager.js';
 import { extractAndOperateMemoryTool } from '../extract_and_operate_memory.js';
-import { logger } from '../../../../../logger/index.js';
 
 describe('Internal Tool Names', () => {
 	let internalToolManager: InternalToolManager;

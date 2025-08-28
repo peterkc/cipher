@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { dispatchChatEvent, extractImageFromToolResult, generateUniqueId } from '@/lib/chat-utils';
 import {
 	ChatMessage,
 	ConnectionStatus,
-	UseChatOptions,
-	OutgoingMessage,
-	IncomingMessage,
-	TextPart,
 	ImagePart,
+	IncomingMessage,
+	OutgoingMessage,
+	TextPart,
+	UseChatOptions,
 } from '@/types/chat';
-import { generateUniqueId, extractImageFromToolResult, dispatchChatEvent } from '@/lib/chat-utils';
 
 export function useChat(wsUrl: string, options: UseChatOptions = {}) {
 	const { autoConnect = true, onMessage, onError, onStatusChange } = options;

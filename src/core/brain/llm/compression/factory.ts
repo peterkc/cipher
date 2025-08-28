@@ -1,10 +1,10 @@
-import { ICompressionStrategy, CompressionConfigSchema } from './types.js';
+import { z } from 'zod';
+import { logger } from '../../../logger/index.js';
+import { createServiceKey, getServiceCache } from '../../memory/service-cache.js';
+import { HybridStrategy } from './strategies/hybrid.js';
 import { MiddleRemovalStrategy } from './strategies/middle-removal.js';
 import { OldestRemovalStrategy } from './strategies/oldest-removal.js';
-import { HybridStrategy } from './strategies/hybrid.js';
-import { logger } from '../../../logger/index.js';
-import { getServiceCache, createServiceKey } from '../../memory/service-cache.js';
-import { z } from 'zod';
+import { CompressionConfigSchema, ICompressionStrategy } from './types.js';
 
 export type CompressionFactoryConfig = z.infer<typeof CompressionConfigSchema>;
 

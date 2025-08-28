@@ -5,26 +5,26 @@
  * This provides backward compatibility while adding performance optimizations.
  */
 
-import { AgentConfig } from '../memAgent/config.js';
-import { createAgentServices } from '../../utils/service-initializer.js';
-import { logger } from '../../logger/index.js';
-import { EmbeddingManager } from '../embedding/index.js';
-import { VectorStoreManager, DualCollectionVectorManager } from '../../vector_storage/index.js';
-import { ILLMService } from '../llm/index.js';
-import { createLLMService } from '../llm/services/factory.js';
-import { createContextManager } from '../llm/messages/factory.js';
-import {
-	createVectorStoreFromEnv,
-	createDualCollectionVectorStoreFromEnv,
-} from '../../vector_storage/factory.js';
 import { env } from '../../env.js';
+import { logger } from '../../logger/index.js';
+import { createAgentServices } from '../../utils/service-initializer.js';
 import {
-	LazyEmbeddingManager,
-	LazyVectorStoreManager,
-	LazyLLMService,
-	type LazyAgentServices,
-	type LazyServiceConfig,
+	createDualCollectionVectorStoreFromEnv,
+	createVectorStoreFromEnv,
+} from '../../vector_storage/factory.js';
+import { DualCollectionVectorManager, VectorStoreManager } from '../../vector_storage/index.js';
+import { EmbeddingManager } from '../embedding/index.js';
+import { ILLMService } from '../llm/index.js';
+import { createContextManager } from '../llm/messages/factory.js';
+import { createLLMService } from '../llm/services/factory.js';
+import { AgentConfig } from '../memAgent/config.js';
+import {
 	getDefaultLazyConfig,
+	type LazyAgentServices,
+	LazyEmbeddingManager,
+	LazyLLMService,
+	type LazyServiceConfig,
+	LazyVectorStoreManager,
 } from './lazy-service-wrapper.js';
 
 // Re-export LazyAgentServices for external use

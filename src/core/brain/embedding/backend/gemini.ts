@@ -8,17 +8,17 @@
  */
 
 import { logger } from '../../../logger/index.js';
+import { HTTP_STATUS, LOG_PREFIXES, RETRY_CONFIG, VALIDATION_LIMITS } from '../constants.js';
 import {
 	type Embedder,
-	type GeminiEmbeddingConfig,
 	type EmbeddingConfig,
-	EmbeddingError,
 	EmbeddingConnectionError,
-	EmbeddingRateLimitError,
 	EmbeddingDimensionError,
+	EmbeddingError,
+	EmbeddingRateLimitError,
 	EmbeddingValidationError,
+	type GeminiEmbeddingConfig,
 } from './types.js';
-import { LOG_PREFIXES, VALIDATION_LIMITS, RETRY_CONFIG, HTTP_STATUS } from '../constants.js';
 
 /**
  * Gemini API response for text embedding

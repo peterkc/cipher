@@ -1,10 +1,9 @@
 'use client';
 
 import { create } from 'zustand';
-import { subscribeWithSelector } from 'zustand/middleware';
-import { persist, createJSONStorage } from 'zustand/middleware';
-import { Session } from '@/types/server-registry';
+import { createJSONStorage, persist, subscribeWithSelector } from 'zustand/middleware';
 import { ChatMessage } from '@/types/chat';
+import { Session } from '@/types/server-registry';
 
 // LRU Cache implementation for session data
 class LRUCache<K, V> {

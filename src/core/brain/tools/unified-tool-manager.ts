@@ -5,14 +5,14 @@
  * Handles tool routing, execution, and conflict resolution between different tool sources.
  */
 
-import { logger } from '../../logger/index.js';
-import { MCPManager } from '../../mcp/manager.js';
-import { InternalToolManager } from './manager.js';
-import { ToolExecutionResult } from '../../mcp/types.js';
-import { isInternalToolName } from './types.js';
+import { v4 as uuidv4 } from 'uuid';
 import { EventManager } from '../../events/event-manager.js';
 import { SessionEvents } from '../../events/event-types.js';
-import { v4 as uuidv4 } from 'uuid';
+import { logger } from '../../logger/index.js';
+import { MCPManager } from '../../mcp/manager.js';
+import { ToolExecutionResult } from '../../mcp/types.js';
+import { InternalToolManager } from './manager.js';
+import { isInternalToolName } from './types.js';
 
 /**
  * Configuration for the unified tool manager

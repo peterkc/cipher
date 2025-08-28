@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { StorageManager } from '../../../../../storage/manager.js';
-import { createDatabaseHistoryProvider } from '../factory.js';
 import { DatabaseHistoryProvider } from '../database.js';
+import { createDatabaseHistoryProvider } from '../factory.js';
 
 describe('createDatabaseHistoryProvider', () => {
 	it('should create a DatabaseHistoryProvider instance for in-memory backend', async () => {

@@ -5,9 +5,9 @@
  * Verifies vector operations, similarity search, and metadata handling.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { InMemoryBackend } from '../backend/in-memory.js';
-import { VectorStoreError, VectorDimensionError } from '../backend/types.js';
+import { VectorDimensionError, VectorStoreError } from '../backend/types.js';
 import { BACKEND_TYPES } from '../constants.js';
 
 // Mock the logger to reduce noise in tests

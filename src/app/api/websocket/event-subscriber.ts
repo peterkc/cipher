@@ -1,7 +1,7 @@
 import { EventManager } from '@core/events/event-manager.js';
 import { logger } from '@core/logger/index.js';
 import { WebSocketConnectionManager } from './connection-manager.js';
-import { WebSocketResponse, WebSocketEventType, WebSocketEventData } from './types.js';
+import { WebSocketEventData, WebSocketEventType, WebSocketResponse } from './types.js';
 
 export class WebSocketEventSubscriber {
 	private abortController: AbortController | null = null;

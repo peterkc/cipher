@@ -1,12 +1,12 @@
-import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, ERROR_MESSAGES } from '../constants.js';
-import { env } from '../../env.js';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { Index, IndexFlatL2, IndexFlatIP, MetricType } from 'faiss-node';
+import { Index, IndexFlatIP, IndexFlatL2, MetricType } from 'faiss-node';
+import { env } from '../../env.js';
+import { createLogger, Logger } from '../../logger/index.js';
+import { ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
+import type { VectorStore } from './vector-store.js';
 
 /**
  * FaissBackendConfig Interface

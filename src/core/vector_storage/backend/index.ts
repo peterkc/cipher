@@ -8,14 +8,14 @@
  */
 
 // Export core types and interfaces
-export type { VectorStore, VectorStoreResult, SearchFilters } from './types.js';
+export type { SearchFilters, VectorStore, VectorStoreResult } from './types.js';
 
 // Export error classes
 export {
-	VectorStoreError,
-	VectorStoreConnectionError,
-	VectorDimensionError,
 	CollectionNotFoundError,
+	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from './types.js';
 
 // Export backend implementations

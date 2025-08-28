@@ -1,9 +1,9 @@
+import { logger } from '@core/logger/index.js';
+import { Server as McpServer } from '@modelcontextprotocol/sdk/server/index.js';
+import type { SSEServerTransportOptions } from '@modelcontextprotocol/sdk/server/sse.js';
+import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 import express, { Application, Request, Response } from 'express';
 import http from 'http';
-import { Server as McpServer } from '@modelcontextprotocol/sdk/server/index.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
-import type { SSEServerTransportOptions } from '@modelcontextprotocol/sdk/server/sse.js';
-import { logger } from '@core/logger/index.js';
 
 /**
  * Dedicated SSE server for MCP mode following the proper SSE transport specification.

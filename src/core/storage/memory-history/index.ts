@@ -12,21 +12,21 @@ export { MemoryHistoryStorageService } from './service.js';
 
 // Type exports
 export type {
+	HistoryFilters,
 	MemoryHistoryEntry,
 	MemoryHistoryService,
-	HistoryFilters,
-	QueryOptions,
-	OperationStats,
 	MemoryOperation,
+	OperationStats,
+	QueryOptions,
 } from './types.js';
 
+import { MemoryHistoryStorageService } from './service.js';
 // Import types for internal use
 import type { MemoryHistoryEntry } from './types.js';
-import { MemoryHistoryStorageService } from './service.js';
 
-// Schema exports
-export { SQLITE_SCHEMA, POSTGRESQL_SCHEMA, MIGRATIONS, QueryBuilder } from './schema.js';
 export type { SchemaManager, SchemaMigration } from './schema.js';
+// Schema exports
+export { MIGRATIONS, POSTGRESQL_SCHEMA, QueryBuilder, SQLITE_SCHEMA } from './schema.js';
 
 /**
  * Create a new memory history service instance

@@ -5,10 +5,10 @@
  * This enables tracking and monitoring of memory operations in the event system.
  */
 
-import { VectorStore, VectorStoreResult, SearchFilters } from './backend/types.js';
 import { EventManager } from '../events/event-manager.js';
 import { SessionEvents } from '../events/event-types.js';
 import { logger } from '../logger/logger.js';
+import { SearchFilters, VectorStore, VectorStoreResult } from './backend/types.js';
 
 /**
  * Event-aware wrapper for VectorStore implementations

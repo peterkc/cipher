@@ -4,10 +4,10 @@
  * Provides capabilities to replay events for debugging, testing, and analysis.
  */
 
+import { logger } from '../logger/logger.js';
 import { EventEnvelope, ServiceEventMap, SessionEventMap } from './event-types.js';
 import { EventPersistence, EventQuery } from './persistence.js';
 import { TypedEventEmitter } from './typed-event-emitter.js';
-import { logger } from '../logger/logger.js';
 
 export interface ReplayOptions {
 	speed?: number; // Replay speed multiplier (1.0 = real-time, 0.5 = half speed, 2.0 = double speed)

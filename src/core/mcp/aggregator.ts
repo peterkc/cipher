@@ -9,23 +9,22 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
 	CallToolRequestSchema,
-	ListToolsRequestSchema,
-	ListResourcesRequestSchema,
-	ReadResourceRequestSchema,
 	GetPromptRequestSchema,
 	ListPromptsRequestSchema,
+	ListResourcesRequestSchema,
+	ListToolsRequestSchema,
+	ReadResourceRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-
-import type {
-	IAggregatorManager,
-	AggregatorConfig,
-	ToolRegistryEntry,
-	ServerConfigs,
-	ToolSet,
-} from './types.js';
+import { LOG_PREFIXES } from './constants.js';
 
 import { MCPManager } from './manager.js';
-import { LOG_PREFIXES } from './constants.js';
+import type {
+	AggregatorConfig,
+	IAggregatorManager,
+	ServerConfigs,
+	ToolRegistryEntry,
+	ToolSet,
+} from './types.js';
 
 /**
  * Implementation of the IAggregatorManager interface for MCP server aggregation.

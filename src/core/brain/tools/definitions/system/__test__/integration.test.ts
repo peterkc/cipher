@@ -4,7 +4,7 @@
  * Tests the bash tool integration with the full cipher tool management system.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { InternalToolManager } from '../../../manager.js';
 import { getAllToolDefinitions } from '../../index.js';
 import { BashSessionManager } from '../bash.js';

@@ -1,6 +1,6 @@
-import { EnhancedInternalMessage, CompressionResult, MessagePriority } from './types.js';
-import { extractTextFromMessage } from '../tokenizer/utils.js';
 import { logger } from '../../../logger/index.js';
+import { extractTextFromMessage } from '../tokenizer/utils.js';
+import { CompressionResult, EnhancedInternalMessage, MessagePriority } from './types.js';
 
 /**
  * Calculate token count for a message (uses cached value if available)

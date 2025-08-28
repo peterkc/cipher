@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { HybridStrategy } from '../strategies/hybrid.js';
 import { MiddleRemovalStrategy } from '../strategies/middle-removal.js';
 import { OldestRemovalStrategy } from '../strategies/oldest-removal.js';
-import { HybridStrategy } from '../strategies/hybrid.js';
-import { EnhancedInternalMessage, CompressionConfig, CompressionLevel } from '../types.js';
+import { CompressionConfig, CompressionLevel, EnhancedInternalMessage } from '../types.js';
 
 describe('Compression Strategies', () => {
 	const baseConfig: CompressionConfig = {

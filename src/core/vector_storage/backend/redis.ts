@@ -10,11 +10,11 @@
  */
 
 import { Redis } from 'ioredis';
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { RedisBackendConfig, SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
 import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult, RedisBackendConfig } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES } from '../constants.js';
 
 type DistanceMetric = 'L2' | 'IP' | 'COSINE';
 

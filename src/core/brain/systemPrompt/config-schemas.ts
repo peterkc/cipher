@@ -5,7 +5,7 @@
  * These can be used for validation, documentation, and as templates for new configurations.
  */
 
-import { SystemPromptConfig, ProviderType } from './interfaces.js';
+import { ProviderType, SystemPromptConfig } from './interfaces.js';
 
 /**
  * JSON Schema for SystemPromptConfig validation

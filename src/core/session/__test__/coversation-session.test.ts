@@ -1,8 +1,9 @@
 console.log('TEST FILE LOADED: coversation-session.test.ts');
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ConversationSession } from '../coversation-session.js';
-import type { LLMConfig } from '../../brain/llm/config.js';
+
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { z } from 'zod';
+import type { LLMConfig } from '../../brain/llm/config.js';
+import { ConversationSession } from '../coversation-session.js';
 
 // Mock the factory functions
 vi.mock('../../brain/llm/messages/factory.js', () => ({

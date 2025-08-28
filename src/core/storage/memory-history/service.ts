@@ -7,18 +7,18 @@
  * @module storage/memory-history/service
  */
 
-import { StorageManager } from '../manager.js';
-import { StorageError, StorageConnectionError } from '../backend/types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES } from '../constants.js';
 import { env } from '../../env.js';
+import { createLogger, Logger } from '../../logger/index.js';
+import { StorageConnectionError, StorageError } from '../backend/types.js';
+import { LOG_PREFIXES } from '../constants.js';
+import { StorageManager } from '../manager.js';
 import {
+	HistoryFilters,
 	MemoryHistoryEntry,
 	MemoryHistoryService,
-	HistoryFilters,
-	QueryOptions,
-	OperationStats,
 	MemoryOperation,
+	OperationStats,
+	QueryOptions,
 } from './types.js';
 
 /**

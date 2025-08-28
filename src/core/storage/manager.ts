@@ -7,16 +7,16 @@
  * @module storage/manager
  */
 
-import type { CacheBackend, DatabaseBackend, StorageBackends, StorageConfig } from './types.js';
+import { createLogger, Logger } from '../logger/index.js';
 import { StorageSchema } from './config.js';
-import { Logger, createLogger } from '../logger/index.js';
 import {
-	LOG_PREFIXES,
-	ERROR_MESSAGES,
-	TIMEOUTS,
-	HEALTH_CHECK,
 	BACKEND_TYPES,
+	ERROR_MESSAGES,
+	HEALTH_CHECK,
+	LOG_PREFIXES,
+	TIMEOUTS,
 } from './constants.js';
+import type { CacheBackend, DatabaseBackend, StorageBackends, StorageConfig } from './types.js';
 
 /**
  * Health check result for storage backends

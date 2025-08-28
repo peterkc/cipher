@@ -1,12 +1,12 @@
-import { LLMConfig, LLMConfigSchema } from '../config.js';
-import { OpenAIMessageFormatter } from './formatters/openai.js';
-import { AnthropicMessageFormatter } from './formatters/anthropic.js';
-import { AzureMessageFormatter } from './formatters/azure.js';
-import { IMessageFormatter } from './formatters/types.js';
-import { ContextManager } from './manager.js';
 import { logger } from '../../../logger/index.js';
 import { EnhancedPromptManager } from '../../systemPrompt/enhanced-manager.js';
+import { LLMConfig, LLMConfigSchema } from '../config.js';
+import { AnthropicMessageFormatter } from './formatters/anthropic.js';
+import { AzureMessageFormatter } from './formatters/azure.js';
+import { OpenAIMessageFormatter } from './formatters/openai.js';
+import { IMessageFormatter } from './formatters/types.js';
 import { IConversationHistoryProvider } from './history/types.js';
+import { ContextManager } from './manager.js';
 
 function getFormatter(provider: string): IMessageFormatter {
 	const normalizedProvider = provider.toLowerCase();

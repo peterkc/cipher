@@ -5,13 +5,13 @@
  * for embedding generation, error handling, and configuration validation.
  */
 
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { LMStudioEmbedder } from '../lmstudio.js';
 import type { LMStudioEmbeddingConfig } from '../types.js';
 import {
 	EmbeddingConnectionError,
-	EmbeddingValidationError,
 	EmbeddingDimensionError,
+	EmbeddingValidationError,
 } from '../types.js';
 
 // Mock OpenAI client

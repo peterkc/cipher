@@ -1,4 +1,4 @@
-import { ApiResponse, SessionInfo, MessageResponse, SystemHealth, LLMConfig } from '@/types/api';
+import { ApiResponse, LLMConfig, MessageResponse, SessionInfo, SystemHealth } from '@/types/api';
 
 const DEFAULT_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 

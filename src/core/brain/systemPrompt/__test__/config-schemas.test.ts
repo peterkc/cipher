@@ -2,17 +2,17 @@
  * Tests for Configuration Schemas and Examples
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { SystemPromptConfigManager } from '../config-manager.js';
 import {
-	SYSTEM_PROMPT_CONFIG_SCHEMA,
 	BASIC_CONFIG_EXAMPLE,
+	CONDITIONAL_CONFIG_EXAMPLE,
 	DYNAMIC_CONFIG_EXAMPLE,
 	FILE_BASED_CONFIG_EXAMPLE,
-	CONDITIONAL_CONFIG_EXAMPLE,
-	MINIMAL_CONFIG_EXAMPLE,
 	getAllExampleConfigs,
+	MINIMAL_CONFIG_EXAMPLE,
+	SYSTEM_PROMPT_CONFIG_SCHEMA,
 } from '../config-schemas.js';
-import { SystemPromptConfigManager } from '../config-manager.js';
 import { ProviderType } from '../interfaces.js';
 
 describe('Configuration Schemas and Examples', () => {

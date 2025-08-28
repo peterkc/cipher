@@ -10,16 +10,16 @@
 
 import OpenAI from 'openai';
 import { logger } from '../../../logger/index.js';
+import { HTTP_STATUS, LOG_PREFIXES, VALIDATION_LIMITS } from '../constants.js';
 import {
 	Embedder,
 	EmbeddingConfig,
 	EmbeddingConnectionError,
+	EmbeddingDimensionError,
+	EmbeddingError,
 	EmbeddingRateLimitError,
 	EmbeddingValidationError,
-	EmbeddingError,
-	EmbeddingDimensionError,
 } from './types.js';
-import { VALIDATION_LIMITS, LOG_PREFIXES, HTTP_STATUS } from '../constants.js';
 
 /**
  * LM Studio-specific embedding configuration

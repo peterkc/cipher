@@ -6,9 +6,9 @@
  * list operations, error handling, and performance scenarios.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { PostgresBackend } from '../postgresql.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { PostgresBackendConfig } from '../../config.js';
+import { PostgresBackend } from '../postgresql.js';
 
 // Mock the logger to reduce noise in tests
 vi.mock('../../../logger/index.js', () => ({

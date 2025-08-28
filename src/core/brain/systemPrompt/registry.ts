@@ -6,15 +6,15 @@
  */
 
 import {
-	ProviderRegistry,
-	ProviderConfig,
 	PromptProvider,
+	ProviderConfig,
 	ProviderGenerator,
+	ProviderRegistry,
 	ProviderType,
 } from './interfaces.js';
-import { StaticPromptProvider } from './providers/static-provider.js';
 import { DynamicPromptProvider } from './providers/dynamic-provider.js';
 import { FilePromptProvider } from './providers/file-provider.js';
+import { StaticPromptProvider } from './providers/static-provider.js';
 
 export class DefaultProviderRegistry implements ProviderRegistry {
 	private generators: Map<string, ProviderGenerator> = new Map();

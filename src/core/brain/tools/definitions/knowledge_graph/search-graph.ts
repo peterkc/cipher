@@ -5,14 +5,14 @@
  * Supports label-based, property-based, and full-text search.
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
-import { logger } from '../../../../logger/index.js';
 import type {
-	GraphNode,
-	GraphEdge,
-	NodeFilters,
 	EdgeFilters,
+	GraphEdge,
+	GraphNode,
+	NodeFilters,
 } from '../../../../knowledge_graph/backend/types.js';
+import { logger } from '../../../../logger/index.js';
+import { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Search Graph Tool Definition for external use

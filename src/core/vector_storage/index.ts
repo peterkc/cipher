@@ -41,42 +41,38 @@
  * ```
  */
 
-// Export types
-export type {
-	VectorStore,
-	VectorStoreResult,
-	SearchFilters,
-	VectorStoreConfig,
-	BackendConfig,
-} from './types.js';
-
 // Export error classes
 export {
-	VectorStoreError,
-	VectorStoreConnectionError,
-	VectorDimensionError,
 	CollectionNotFoundError,
+	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from './backend/types.js';
-
-// Export factory functions
-export {
-	createVectorStore,
-	createDefaultVectorStore,
-	createVectorStoreFromEnv,
-	createDualCollectionVectorStoreFromEnv,
-	createMultiCollectionVectorStoreFromEnv,
-	getVectorStoreConfigFromEnv,
-	createWorkspaceVectorStoreFromEnv,
-	getWorkspaceVectorStoreConfigFromEnv,
-	isVectorStoreFactory,
-	type VectorStoreFactory,
-	type DualCollectionVectorFactory,
-	type MultiCollectionVectorFactory,
-} from './factory.js';
-
-// Export managers
-export { VectorStoreManager, type HealthCheckResult, type VectorStoreInfo } from './manager.js';
-export { DualCollectionVectorManager, type CollectionType } from './dual-collection-manager.js';
-
 // Export constants for external use
 export { BACKEND_TYPES, DEFAULTS, DISTANCE_METRICS } from './constants.js';
+export { type CollectionType, DualCollectionVectorManager } from './dual-collection-manager.js';
+// Export factory functions
+export {
+	createDefaultVectorStore,
+	createDualCollectionVectorStoreFromEnv,
+	createMultiCollectionVectorStoreFromEnv,
+	createVectorStore,
+	createVectorStoreFromEnv,
+	createWorkspaceVectorStoreFromEnv,
+	type DualCollectionVectorFactory,
+	getVectorStoreConfigFromEnv,
+	getWorkspaceVectorStoreConfigFromEnv,
+	isVectorStoreFactory,
+	type MultiCollectionVectorFactory,
+	type VectorStoreFactory,
+} from './factory.js';
+// Export managers
+export { type HealthCheckResult, type VectorStoreInfo, VectorStoreManager } from './manager.js';
+// Export types
+export type {
+	BackendConfig,
+	SearchFilters,
+	VectorStore,
+	VectorStoreConfig,
+	VectorStoreResult,
+} from './types.js';

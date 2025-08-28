@@ -11,23 +11,23 @@
 import OpenAI from 'openai';
 import { logger } from '../../../logger/index.js';
 import {
-	Embedder,
-	OpenAIEmbeddingConfig,
-	EmbeddingConnectionError,
-	EmbeddingRateLimitError,
-	EmbeddingQuotaError,
-	EmbeddingValidationError,
-	EmbeddingError,
-	EmbeddingDimensionError,
-} from './types.js';
-import {
-	MODEL_DIMENSIONS,
-	VALIDATION_LIMITS,
 	ERROR_MESSAGES,
-	LOG_PREFIXES,
-	RETRY_CONFIG,
 	HTTP_STATUS,
+	LOG_PREFIXES,
+	MODEL_DIMENSIONS,
+	RETRY_CONFIG,
+	VALIDATION_LIMITS,
 } from '../constants.js';
+import {
+	Embedder,
+	EmbeddingConnectionError,
+	EmbeddingDimensionError,
+	EmbeddingError,
+	EmbeddingQuotaError,
+	EmbeddingRateLimitError,
+	EmbeddingValidationError,
+	OpenAIEmbeddingConfig,
+} from './types.js';
 
 /**
  * OpenAI Embedder Implementation

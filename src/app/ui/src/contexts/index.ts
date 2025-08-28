@@ -1,7 +1,7 @@
 export {
 	ChatProvider,
 	useChatContext,
-	useChatSession,
 	useChatMessages,
+	useChatSession,
 	useChatStatus,
 } from './chat-context';

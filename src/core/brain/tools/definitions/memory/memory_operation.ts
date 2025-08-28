@@ -7,8 +7,8 @@
  * memory management with contextual understanding.
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import { InternalTool, InternalToolContext } from '../../types.js';
 // Import payload migration utilities
 import { createKnowledgePayload } from './payloads.js';
 

@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { SessionManager } from '../session-manager.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ConversationSession } from '../coversation-session.js';
+import { SessionManager } from '../session-manager.js';
 
 // Mock the ConversationSession to avoid complex dependencies
 vi.mock('../coversation-session.js', () => ({

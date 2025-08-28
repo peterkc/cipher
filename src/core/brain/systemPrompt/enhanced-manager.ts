@@ -5,16 +5,16 @@
  * Provides extensible, configurable, and high-performance system prompt generation.
  */
 
+import { registerBuiltInGenerators } from './built-in-generators.js';
+import { SystemPromptConfigManager } from './config-manager.js';
 import {
+	PromptGenerationResult,
 	PromptProvider,
 	ProviderContext,
-	PromptGenerationResult,
 	ProviderResult,
 	SystemPromptConfig,
 } from './interfaces.js';
-import { SystemPromptConfigManager } from './config-manager.js';
 import { providerRegistry } from './registry.js';
-import { registerBuiltInGenerators } from './built-in-generators.js';
 
 export interface EnhancedPromptManagerOptions {
 	/** Configuration for the prompt manager */

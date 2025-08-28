@@ -5,25 +5,23 @@
  * Phase 3: Memory operations lazy loading - properly integrated into the application.
  */
 
-// Export lazy loading service wrappers
-export {
-	LazyEmbeddingManager,
-	LazyVectorStoreManager,
-	LazyLLMService,
-	getDefaultLazyConfig,
-	type LazyServiceConfig,
-	type LazyAgentServices,
-} from './lazy-service-wrapper.js';
-
 // Export enhanced service initializer
 export {
 	createEnhancedAgentServices,
-	shouldEnableLazyLoading,
-	getEmbeddingManager,
-	getVectorStoreManager,
-	getLLMService,
 	type EnhancedServiceOptions,
+	getEmbeddingManager,
+	getLLMService,
+	getVectorStoreManager,
+	shouldEnableLazyLoading,
 } from './enhanced-service-initializer.js';
-
 // Export lazy memory tool
 export { lazyExtractAndOperateMemoryTool } from './lazy-extract-and-operate.js';
+// Export lazy loading service wrappers
+export {
+	getDefaultLazyConfig,
+	type LazyAgentServices,
+	LazyEmbeddingManager,
+	LazyLLMService,
+	type LazyServiceConfig,
+	LazyVectorStoreManager,
+} from './lazy-service-wrapper.js';

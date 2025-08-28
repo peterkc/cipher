@@ -13,12 +13,12 @@
  */
 
 import type {
-	GraphNode,
+	EdgeFilters,
 	GraphEdge,
+	GraphNode,
 	GraphQuery,
 	GraphResult,
 	NodeFilters,
-	EdgeFilters,
 } from './types.js';
 
 /**

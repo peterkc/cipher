@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { ContextManager } from '../manager.js';
-import { IMessageFormatter } from '../formatters/types.js';
-import { InternalMessage } from '../types.js';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CompressionLevel } from '../../compression/types.js';
+import { IMessageFormatter } from '../formatters/types.js';
+import { ContextManager } from '../manager.js';
+import { InternalMessage } from '../types.js';
 
 // Mock logger
 vi.mock('../../../../logger/index.js', () => ({

@@ -1,8 +1,8 @@
 import {
-	WebSocketMessage,
-	WebSocketResponse,
 	ConnectionStatus,
 	WebSocketConfig,
+	WebSocketMessage,
+	WebSocketResponse,
 } from '@/types/websocket';
 
 export class WebSocketClient {

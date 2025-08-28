@@ -5,10 +5,10 @@
  * Tests the specific issues: missing connect() call, username support, and configurable timeout.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi, type MockedFunction } from 'vitest';
 import { Redis } from 'ioredis';
-import { RedisBackend } from '../redis-backend.js';
+import { afterEach, beforeEach, describe, expect, it, type MockedFunction, vi } from 'vitest';
 import type { RedisBackendConfig } from '../../config.js';
+import { RedisBackend } from '../redis-backend.js';
 
 // Mock ioredis completely
 const mockConnect = vi.fn();

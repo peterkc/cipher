@@ -5,10 +5,10 @@
  * Verifies recording, querying, and analytics functionality.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MemoryHistoryStorageService } from '../service.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryHistoryEntry } from '../index.js';
-import type { MemoryHistoryEntry, HistoryFilters } from '../types.js';
+import { MemoryHistoryStorageService } from '../service.js';
+import type { HistoryFilters, MemoryHistoryEntry } from '../types.js';
 
 // Mock the logger to reduce noise in tests
 vi.mock('../../../logger/index.js', () => ({

@@ -38,18 +38,17 @@
  * the knowledge graph module without exposing internal implementation details.
  */
 export type {
-	// Core interfaces
-	KnowledgeGraph, // Interface for knowledge graph implementations
-	GraphNode, // Node structure in the graph
-	GraphEdge, // Edge/relationship structure in the graph
-	GraphQuery, // Query structure for graph operations
-	GraphResult, // Search/query result structure
-	NodeFilters, // Metadata filters for node search
-	EdgeFilters, // Metadata filters for edge search
-
 	// Configuration types
 	BackendConfig, // Union type for all backend configurations
+	EdgeFilters, // Metadata filters for edge search
+	GraphEdge, // Edge/relationship structure in the graph
+	GraphNode, // Node structure in the graph
+	GraphQuery, // Query structure for graph operations
+	GraphResult, // Search/query result structure
+	// Core interfaces
+	KnowledgeGraph, // Interface for knowledge graph implementations
 	KnowledgeGraphConfig, // Top-level knowledge graph system configuration
+	NodeFilters, // Metadata filters for node search
 } from './backend/types.js';
 
 /**
@@ -60,22 +59,19 @@ export {
 	parseKnowledgeGraphConfig,
 	validateKnowledgeGraphConfig,
 } from './config.js';
-
-/**
- * Re-export factory functions
- */
-export {
-	createKnowledgeGraph,
-	createDefaultKnowledgeGraph,
-	createKnowledgeGraphFromEnv,
-} from './factory.js';
-
-/**
- * Re-export manager
- */
-export { KnowledgeGraphManager } from './manager.js';
-
 /**
  * Re-export constants
  */
 export { BACKEND_TYPES, DEFAULTS, ERROR_MESSAGES } from './constants.js';
+/**
+ * Re-export factory functions
+ */
+export {
+	createDefaultKnowledgeGraph,
+	createKnowledgeGraph,
+	createKnowledgeGraphFromEnv,
+} from './factory.js';
+/**
+ * Re-export manager
+ */
+export { KnowledgeGraphManager } from './manager.js';

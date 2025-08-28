@@ -1,8 +1,8 @@
-import { TypedEventEmitter } from './typed-event-emitter.js';
-import { ServiceEventMap, EventEnvelope, EventMetadata } from './event-types.js';
-import { logger } from '../logger/logger.js';
 import { v4 as uuidv4 } from 'uuid';
+import { logger } from '../logger/logger.js';
+import { EventEnvelope, EventMetadata, ServiceEventMap } from './event-types.js';
 import { EventPersistence } from './persistence.js';
+import { TypedEventEmitter } from './typed-event-emitter.js';
 
 export interface ServiceEventBusOptions {
 	enableLogging?: boolean;

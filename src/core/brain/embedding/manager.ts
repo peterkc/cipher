@@ -9,14 +9,14 @@
  */
 
 import { logger } from '../../logger/index.js';
-import { type Embedder, type BackendConfig } from './backend/index.js';
+import { type BackendConfig, type Embedder } from './backend/index.js';
+import { type EmbeddingConfig } from './config.js';
+import { LOG_PREFIXES } from './constants.js';
 import {
 	createEmbedder,
 	createEmbedderFromEnv,
 	type BackendConfig as FactoryBackendConfig,
 } from './factory.js';
-import { LOG_PREFIXES } from './constants.js';
-import { type EmbeddingConfig } from './config.js';
 // Removed complex resilient embedder and circuit breaker infrastructure
 
 /**

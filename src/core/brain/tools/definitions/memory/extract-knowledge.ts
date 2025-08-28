@@ -5,8 +5,8 @@
  * details from the interaction for memory storage and future reference.
  */
 
-import { InternalTool } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import { InternalTool } from '../../types.js';
 
 /**
  * Extract Fact Tool Definition for external use

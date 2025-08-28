@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { serverRegistry } from '@/lib/server-registry-service';
 import {
 	ServerRegistryEntry,
 	ServerRegistryFilter,
 	UseServerRegistryOptions,
 } from '@/types/server-registry';
-import { serverRegistry } from '@/lib/server-registry-service';
 
 export function useServerRegistry(options: UseServerRegistryOptions = {}) {
 	const { autoLoad = true, initialFilter } = options;

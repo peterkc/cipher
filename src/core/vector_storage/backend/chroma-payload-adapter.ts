@@ -8,14 +8,14 @@
  * @module vector_storage/backend/chroma-payload-adapter
  */
 
+import { createLogger, Logger } from '../../logger/index.js';
+import { LOG_PREFIXES } from '../constants.js';
 import type {
 	ChromaPayloadAdapter,
-	PayloadTransformationConfig,
 	FieldTransformationConfig,
+	PayloadTransformationConfig,
 	PayloadTransformationStrategy,
 } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES } from '../constants.js';
 
 /**
  * Default configuration for payload transformation

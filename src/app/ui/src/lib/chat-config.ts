@@ -1,4 +1,4 @@
-import { SessionMessage, ChatMessage, ToolCall } from '@/types/chat';
+import { ChatMessage, SessionMessage, ToolCall } from '@/types/chat';
 
 // API base URL configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';

@@ -1,8 +1,15 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { CommandParser } from '../parser.js';
 import { MemAgent } from '@core/index.js';
-import { describe as describeMeta, it as itMeta, expect as expectMeta } from 'vitest';
+import {
+	beforeEach,
+	describe,
+	describe as describeMeta,
+	expect,
+	expect as expectMeta,
+	it,
+	it as itMeta,
+} from 'vitest';
 import { parseMetaString } from '../cli.js';
+import { CommandParser } from '../parser.js';
 
 describe('CommandParser', () => {
 	let parser: CommandParser;

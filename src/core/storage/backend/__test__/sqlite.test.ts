@@ -5,12 +5,12 @@
  * Verifies DatabaseBackend functionality with persistent storage.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { SqliteBackend } from '../sqlite.js';
-import { StorageError, StorageConnectionError } from '../types.js';
-import { BACKEND_TYPES } from '../../constants.js';
-import { rmSync, existsSync } from 'fs';
+import { existsSync, rmSync } from 'fs';
 import { join } from 'path';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { BACKEND_TYPES } from '../../constants.js';
+import { SqliteBackend } from '../sqlite.js';
+import { StorageConnectionError, StorageError } from '../types.js';
 
 describe.skip('SqliteBackend', () => {
 	let backend: SqliteBackend;

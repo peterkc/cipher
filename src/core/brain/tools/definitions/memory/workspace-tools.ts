@@ -5,31 +5,30 @@
  * project progress tracking, and shared context management.
  */
 
-import { workspaceSearchTool } from './workspace_search.js';
-import { workspaceStoreTool } from './workspace_store.js';
-import type { InternalTool } from '../../types.js';
 import { env } from '../../../../env.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool } from '../../types.js';
+import { workspaceSearchTool } from './workspace_search.js';
+import { workspaceStoreTool } from './workspace_store.js';
 
 // Export individual workspace tools
 export { workspaceSearchTool, workspaceStoreTool };
 
+// Export workspace configuration
+export {
+	DEFAULT_WORKSPACE_CONFIG,
+	loadWorkspaceConfigFromEnv,
+	validateWorkspaceMemoryConfig,
+	type WorkspaceBehaviorConfig,
+	type WorkspaceMemoryConfig,
+	type WorkspaceToolConfig,
+} from '../../../../config/workspace-memory-config.schema.js';
 // Export workspace payload utilities
 export {
 	createWorkspacePayload,
 	extractWorkspaceInfo,
 	type WorkspacePayload,
 } from './workspace-payloads.js';
-
-// Export workspace configuration
-export {
-	loadWorkspaceConfigFromEnv,
-	validateWorkspaceMemoryConfig,
-	DEFAULT_WORKSPACE_CONFIG,
-	type WorkspaceMemoryConfig,
-	type WorkspaceToolConfig,
-	type WorkspaceBehaviorConfig,
-} from '../../../../config/workspace-memory-config.schema.js';
 
 /**
  * Array of all workspace memory tools

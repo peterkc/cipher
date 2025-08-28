@@ -9,20 +9,20 @@
 
 import { logger } from '../../../logger/index.js';
 import {
-	type Embedder,
-	type OllamaEmbeddingConfig,
-	type EmbeddingConfig,
-	EmbeddingError,
-	EmbeddingConnectionError,
-	EmbeddingValidationError,
-} from './types.js';
-import {
-	LOG_PREFIXES,
-	VALIDATION_LIMITS,
-	RETRY_CONFIG,
 	HTTP_STATUS,
+	LOG_PREFIXES,
 	MODEL_DIMENSIONS,
+	RETRY_CONFIG,
+	VALIDATION_LIMITS,
 } from '../constants.js';
+import {
+	type Embedder,
+	type EmbeddingConfig,
+	EmbeddingConnectionError,
+	EmbeddingError,
+	EmbeddingValidationError,
+	type OllamaEmbeddingConfig,
+} from './types.js';
 
 /**
  * Ollama API response for text embedding

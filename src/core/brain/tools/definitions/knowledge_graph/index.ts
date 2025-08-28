@@ -7,20 +7,19 @@
 
 import type { InternalToolSet } from '../../types.js';
 
+export { addEdgeTool } from './add-edge.js';
 // Export all knowledge graph tools with dynamic imports
 export { addNodeTool } from './add-node.js';
-export { addEdgeTool } from './add-edge.js';
-export { searchGraphTool } from './search-graph.js';
-export { getNeighborsTool } from './get-neighbors.js';
-export { extractEntitiesTool } from './extract-entities.js';
-export { updateNodeTool } from './update-node.js';
 export { deleteNodeTool } from './delete-node.js';
-export { queryGraphTool } from './query-graph.js';
-
+export { enhancedSearchTool } from './enhanced-search.js';
+export { extractEntitiesTool } from './extract-entities.js';
+export { getNeighborsTool } from './get-neighbors.js';
 // Export new intelligent knowledge graph tools
 export { intelligentProcessorTool } from './intelligent-processor.js';
-export { enhancedSearchTool } from './enhanced-search.js';
+export { queryGraphTool } from './query-graph.js';
 export { relationshipManagerTool } from './relationship-manager.js';
+export { searchGraphTool } from './search-graph.js';
+export { updateNodeTool } from './update-node.js';
 
 /**
  * Get all knowledge graph tools as a tool set

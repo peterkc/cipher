@@ -5,22 +5,22 @@
  * and integration with the broader agent architecture.
  */
 
+import { v4 as uuidv4 } from 'uuid';
+import { EventManager } from '../../events/event-manager.js';
+import { SessionEvents } from '../../events/event-types.js';
 import { logger } from '../../logger/index.js';
 import { ToolExecutionResult } from '../../mcp/types.js';
 import { InternalToolRegistry } from './registry.js';
 import {
+	createInternalToolName,
 	IInternalToolManager,
 	InternalTool,
-	InternalToolSet,
 	InternalToolCategory,
-	InternalToolManagerConfig,
 	InternalToolContext,
+	InternalToolManagerConfig,
+	InternalToolSet,
 	ToolExecutionStats,
-	createInternalToolName,
 } from './types.js';
-import { EventManager } from '../../events/event-manager.js';
-import { SessionEvents } from '../../events/event-types.js';
-import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Cache entry for tool execution statistics

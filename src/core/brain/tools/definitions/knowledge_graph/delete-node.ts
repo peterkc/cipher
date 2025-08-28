@@ -4,8 +4,8 @@
  * Deletes a node and its relationships from the knowledge graph.
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import { InternalTool, InternalToolContext } from '../../types.js';
 
 export const deleteNodeTool: InternalTool = {
 	name: 'delete_node',

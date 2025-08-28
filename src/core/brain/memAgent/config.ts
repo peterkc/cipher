@@ -1,7 +1,7 @@
-import { ServerConfigsSchema } from '../../mcp/config.js';
-import { LLMConfigSchema } from '../llm/config.js';
-import { EmbeddingConfigSchema } from '../embedding/config.js';
 import { z } from 'zod';
+import { ServerConfigsSchema } from '../../mcp/config.js';
+import { EmbeddingConfigSchema } from '../embedding/config.js';
+import { LLMConfigSchema } from '../llm/config.js';
 export const AgentCardSchema = z
 	.object({
 		name: z.string().default('cipher'),

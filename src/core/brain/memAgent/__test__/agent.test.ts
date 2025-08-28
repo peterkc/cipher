@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { ZodError } from 'zod';
+import { LLMConfigSchema } from '../../llm/config.js';
 import { MemAgent } from '../agent.js';
 import { AgentConfig, AgentConfigSchema } from '../config.js';
-import { LLMConfigSchema } from '../../llm/config.js';
-import { ZodError } from 'zod';
 
 // Mock all external dependencies
 vi.mock('../../../utils/service-initializer.js', () => ({

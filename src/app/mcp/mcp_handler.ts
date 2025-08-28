@@ -1,19 +1,19 @@
+import { MemAgent } from '@core/brain/memAgent/agent.js';
+import { AgentCardSchema } from '@core/brain/memAgent/config.js';
+import { logger } from '@core/logger/index.js';
+import type { AggregatorConfig } from '@core/mcp/types.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import {
 	CallToolRequestSchema,
-	ListToolsRequestSchema,
-	ListResourcesRequestSchema,
-	ReadResourceRequestSchema,
 	GetPromptRequestSchema,
 	ListPromptsRequestSchema,
+	ListResourcesRequestSchema,
+	ListToolsRequestSchema,
+	ReadResourceRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { MemAgent } from '@core/brain/memAgent/agent.js';
-import { logger } from '@core/logger/index.js';
-import { AgentCardSchema } from '@core/brain/memAgent/config.js';
-import { z } from 'zod';
 import * as fs from 'fs';
 import * as path from 'path';
-import type { AggregatorConfig } from '@core/mcp/types.js';
+import { z } from 'zod';
 import { McpSseServer } from './mcp_sse_server.js';
 import { McpStreamableHttpServer } from './mcp_streamable_http_server.js';
 

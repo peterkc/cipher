@@ -2,7 +2,7 @@
  * Tests for AggregatorMCPManager and related functionality
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AggregatorMCPManager } from '../aggregator.js';
 import type { AggregatorConfig, ToolSet } from '../types.js';
 

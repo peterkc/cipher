@@ -3,9 +3,9 @@
  * This file tests the 15 critical issues identified in KNOWN_BUGS_AND_ISSUES.md
  */
 
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { ConversationSession } from '../coversation-session.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { LLMConfig } from '../../brain/llm/config.js';
+import { ConversationSession } from '../coversation-session.js';
 
 // Mock dependencies
 vi.mock('../../logger/index.js', () => ({

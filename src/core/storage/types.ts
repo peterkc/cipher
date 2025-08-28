@@ -35,12 +35,11 @@
  * the storage module without exposing internal implementation details.
  */
 export type {
+	// Configuration types
+	BackendConfig, // Union type for all backend configurations
 	// Backend interfaces
 	CacheBackend, // Interface for cache storage implementations
 	DatabaseBackend, // Interface for database storage implementations
 	StorageBackends, // Combined backends structure
-
-	// Configuration types
-	BackendConfig, // Union type for all backend configurations
 	StorageConfig, // Top-level storage system configuration
 } from './backend/types.js';

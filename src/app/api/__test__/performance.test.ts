@@ -3,8 +3,8 @@
  * Tests API performance under load and memory leak prevention
  */
 
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { performance } from 'perf_hooks';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock dependencies
 vi.mock('../../../core/logger/index.js', () => ({

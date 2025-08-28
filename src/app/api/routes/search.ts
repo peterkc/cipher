@@ -5,12 +5,12 @@
  * Based on the Saiki WebUI architecture with comprehensive search capabilities
  */
 
-import { Router, Request, Response } from 'express';
 import { MemAgent } from '@core/brain/memAgent/index.js';
+import { logger } from '@core/logger/index.js';
+import { Request, Response, Router } from 'express';
 // TODO: SearchService will be implemented in the future
 // import { SearchService } from '@core/ai/search/search-service.js';
-import { errorResponse, ERROR_CODES } from '../utils/response.js';
-import { logger } from '@core/logger/index.js';
+import { ERROR_CODES, errorResponse } from '../utils/response.js';
 
 export function createSearchRoutes(_agent: MemAgent): Router {
 	const router = Router();

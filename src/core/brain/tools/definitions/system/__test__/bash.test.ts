@@ -4,9 +4,9 @@
  * Tests both one-off command execution and persistent session functionality.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { bashTool, BashSessionManager } from '../bash.js';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import type { InternalToolContext } from '../../../types.js';
+import { BashSessionManager, bashTool } from '../bash.js';
 
 describe('Bash Tool', () => {
 	let sessionManager: BashSessionManager;

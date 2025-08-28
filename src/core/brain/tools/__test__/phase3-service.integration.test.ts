@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { InternalToolManager } from '../manager.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { registerAllTools } from '../definitions/index.js';
+import { InternalToolManager } from '../manager.js';
 
 // Mock the logger to avoid console output during tests
 vi.mock('../../../logger/index.js', () => ({

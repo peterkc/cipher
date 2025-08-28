@@ -5,8 +5,8 @@
  * Allows updating properties and optionally labels.
  */
 
-import type { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Input schema for the update node tool

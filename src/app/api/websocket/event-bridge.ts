@@ -1,7 +1,7 @@
 import { EventManager } from '@core/events/event-manager.js';
 import { logger } from '@core/logger/index.js';
 import { WebSocketConnectionManager } from './connection-manager.js';
-import { WebSocketResponse, WebSocketEventType } from './types.js';
+import { WebSocketEventType, WebSocketResponse } from './types.js';
 
 /**
  * WebSocket Event Bridge - Advanced event routing and transformation

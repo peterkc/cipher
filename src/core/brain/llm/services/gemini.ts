@@ -1,14 +1,14 @@
-import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
-import { ILLMService } from './types.js';
-import { ImageData } from '../messages/types.js';
+import { GenerativeModel, GoogleGenerativeAI } from '@google/generative-ai';
+import { v4 as uuidv4 } from 'uuid';
+import { EventManager } from '../../../events/event-manager.js';
+import { SessionEvents } from '../../../events/event-types.js';
+import { logger } from '../../../logger/index.js';
 import { MCPManager } from '../../../mcp/manager.js';
 import { UnifiedToolManager } from '../../tools/unified-tool-manager.js';
 import { ContextManager } from '../messages/manager.js';
-import { logger } from '../../../logger/index.js';
+import { ImageData } from '../messages/types.js';
 import { formatToolResult } from '../utils/tool-result-formatter.js';
-import { EventManager } from '../../../events/event-manager.js';
-import { SessionEvents } from '../../../events/event-types.js';
-import { v4 as uuidv4 } from 'uuid';
+import { ILLMService } from './types.js';
 
 export class GeminiService implements ILLMService {
 	private genAI: GoogleGenerativeAI;

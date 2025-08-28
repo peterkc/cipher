@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { loadAgentConfig } from '../loader.js';
 import { promises as fs } from 'fs';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { parse as parseYaml } from 'yaml';
+import { loadAgentConfig } from '../loader.js';
 
 // Mock external dependencies
 vi.mock('fs', () => ({

@@ -5,8 +5,8 @@
  * and enable selective event processing.
  */
 
-import { EventEnvelope } from './event-types.js';
 import { logger } from '../logger/logger.js';
+import { EventEnvelope } from './event-types.js';
 
 export type EventFilter = (event: EventEnvelope) => boolean;
 

@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { DatabaseHistoryProvider } from '../database.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { InMemoryBackend } from '../../../../../storage/backend/in-memory.js';
 import { StorageManager } from '../../../../../storage/manager.js';
 import type { InternalMessage } from '../../types.js';
-import { InMemoryBackend } from '../../../../../storage/backend/in-memory.js';
+import { DatabaseHistoryProvider } from '../database.js';
 
 function makeMessage(i = 0): InternalMessage {
 	return { role: 'user' as const, content: `msg${i}` };

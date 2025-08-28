@@ -2,11 +2,11 @@
  * Tests for Content-Based Reasoning Detection
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { ReasoningContentDetector } from '../content-detector.js';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MCPManager } from '../../../mcp/manager.js';
-import { UnifiedToolManager } from '../../tools/unified-tool-manager.js';
 import { EnhancedPromptManager } from '../../systemPrompt/enhanced-manager.js';
+import { UnifiedToolManager } from '../../tools/unified-tool-manager.js';
+import { ReasoningContentDetector } from '../content-detector.js';
 
 // Mock dependencies
 vi.mock('../../../mcp/manager.js');

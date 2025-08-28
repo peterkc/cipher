@@ -1,10 +1,10 @@
 import {
-	TextPart,
-	ImagePart,
 	FilePart,
+	ImagePart,
+	TextPart,
 	ToolResult,
-	ToolResultError,
 	ToolResultContent,
+	ToolResultError,
 } from '@/types/chat';
 
 // Type guards for content parts

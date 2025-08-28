@@ -1,12 +1,12 @@
 // Import the actual Milvus client
-import { MilvusClient, DataType } from '@zilliz/milvus2-sdk-node';
-import type { VectorStore } from './vector-store.js';
-import type { SearchFilters, VectorStoreResult, MilvusBackendConfig } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, ERROR_MESSAGES } from '../constants.js';
+import { DataType, MilvusClient } from '@zilliz/milvus2-sdk-node';
 import { env } from '../../env.js';
+import { createLogger, Logger } from '../../logger/index.js';
 import { getMilvusConnectionPool, type MilvusConnectionConfig } from '../connection-pool.js';
+import { ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import type { MilvusBackendConfig, SearchFilters, VectorStoreResult } from './types.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
+import type { VectorStore } from './vector-store.js';
 
 /**
  * MilvusBackend Class

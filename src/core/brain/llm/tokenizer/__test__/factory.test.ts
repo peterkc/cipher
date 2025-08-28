@@ -1,9 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createTokenizer, getTokenizerConfigForModel } from '../factory.js';
-import { OpenAITokenizer } from '../providers/openai.js';
 import { AnthropicTokenizer } from '../providers/anthropic.js';
-import { GoogleTokenizer } from '../providers/google.js';
 import { DefaultTokenizer } from '../providers/default.js';
+import { GoogleTokenizer } from '../providers/google.js';
+import { OpenAITokenizer } from '../providers/openai.js';
 import { TokenizerConfigSchema } from '../types.js';
 
 describe('Tokenizer Factory', () => {

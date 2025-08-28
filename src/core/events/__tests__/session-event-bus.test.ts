@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { SessionEventBus } from '../session-event-bus.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { SessionEvents } from '../event-types.js';
+import { SessionEventBus } from '../session-event-bus.js';
 
 describe('SessionEventBus', () => {
 	let sessionBus: SessionEventBus;

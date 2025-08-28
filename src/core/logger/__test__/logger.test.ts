@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach, beforeAll } from 'vitest';
-import { Logger, logger, createLogger, setGlobalLogLevel, getGlobalLogLevel } from '../index.js';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
+import { createLogger, getGlobalLogLevel, Logger, logger, setGlobalLogLevel } from '../index.js';
 
 // Mock console methods to capture output
 let spyConsoleLog: ReturnType<typeof vi.spyOn>;

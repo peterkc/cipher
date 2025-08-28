@@ -1,7 +1,7 @@
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { performance } from 'node:perf_hooks';
-import { createTokenizer, getTokenizerConfigForModel } from '../factory.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { getTokenizerCache } from '../cache.js';
+import { createTokenizer, getTokenizerConfigForModel } from '../factory.js';
 import { TokenizerConfig } from '../types.js';
 
 // Mock the actual tokenizer providers to avoid external dependencies

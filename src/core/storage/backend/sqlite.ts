@@ -7,15 +7,15 @@
  * @module storage/backend/sqlite
  */
 
-import Database from 'better-sqlite3';
+import { Database } from 'bun:sqlite';
+import { existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
-import { existsSync } from 'fs';
-import type { DatabaseBackend } from './database-backend.js';
+import { createLogger, Logger } from '../../logger/index.js';
 import type { SqliteBackendConfig } from '../config.js';
-import { StorageError, StorageConnectionError } from './types.js';
 import { BACKEND_TYPES, ERROR_MESSAGES } from '../constants.js';
-import { Logger, createLogger } from '../../logger/index.js';
+import type { DatabaseBackend } from './database-backend.js';
+import { StorageConnectionError, StorageError } from './types.js';
 
 /**
  * SQLite Database Backend
@@ -358,9 +358,9 @@ export class SqliteBackend implements DatabaseBackend {
 
 			// Range query for lists
 			getRange: this.db.prepare(`
-				SELECT value FROM lists 
-				WHERE key = ? 
-				ORDER BY position 
+				SELECT value FROM lists
+				WHERE key = ?
+				ORDER BY position
 				LIMIT ? OFFSET ?
 			`),
 			listCount: this.db.prepare('SELECT COUNT(*) as count FROM lists WHERE key = ?'),

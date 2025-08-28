@@ -1,15 +1,15 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { MCPManager } from '../../../mcp/manager.js';
 import {
-	registerAllTools,
 	getToolInfo,
 	getToolsByCategory,
+	registerAllTools,
 	TOOL_CATEGORIES,
 } from '../definitions/index.js';
 import { extractAndOperateMemoryTool, searchMemoryTool } from '../definitions/memory/index.js';
 import { InternalToolManager } from '../manager.js';
 import { InternalToolRegistry } from '../registry.js';
 import { UnifiedToolManager } from '../unified-tool-manager.js';
-import { MCPManager } from '../../../mcp/manager.js';
 
 // Mock the logger to avoid console output during tests
 vi.mock('../../../logger/index.js', () => ({

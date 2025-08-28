@@ -5,7 +5,7 @@
  * Useful for time-sensitive information, user-specific data, or contextual instructions.
  */
 
-import { ProviderType, ProviderContext } from '../interfaces.js';
+import { ProviderContext, ProviderType } from '../interfaces.js';
 import { BasePromptProvider } from './base-provider.js';
 
 export type DynamicContentGenerator = (

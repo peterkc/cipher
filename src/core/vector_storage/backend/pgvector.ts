@@ -16,16 +16,16 @@
 
 import { Pool, types } from 'pg';
 import type { TypeId } from 'pg-types';
-import type { VectorStore } from './vector-store.js';
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, DISTANCE_METRICS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
 import type {
-	SearchFilters,
-	VectorStoreResult,
 	BackendConfig,
 	PgVectorBackendConfig,
+	SearchFilters,
+	VectorStoreResult,
 } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES, DISTANCE_METRICS } from '../constants.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
+import type { VectorStore } from './vector-store.js';
 
 // Define the OID for the vector type. This may need to be adjusted based on the
 // specific installation of pgvector. The 'text' OID for vector is 16405.

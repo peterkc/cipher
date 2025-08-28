@@ -6,14 +6,14 @@
  */
 
 import { logger } from '../../logger/index.js';
-import { LOG_PREFIXES } from './constants.js';
-import { EmbeddingCircuitBreaker, CircuitState } from './circuit-breaker.js';
 import type { Embedder, EmbeddingConfig } from './backend/types.js';
 import {
-	EmbeddingError,
 	EmbeddingConnectionError,
+	EmbeddingError,
 	EmbeddingValidationError,
 } from './backend/types.js';
+import { CircuitState, EmbeddingCircuitBreaker } from './circuit-breaker.js';
+import { LOG_PREFIXES } from './constants.js';
 
 export interface ResilientEmbedderConfig {
 	/** Enable circuit breaker protection */

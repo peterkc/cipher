@@ -2,9 +2,9 @@
  * Tests for Static Prompt Provider
  */
 
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { ProviderContext, ProviderType } from '../../interfaces.js';
 import { StaticPromptProvider } from '../../providers/static-provider.js';
-import { ProviderType, ProviderContext } from '../../interfaces.js';
 
 describe('StaticPromptProvider', () => {
 	let provider: StaticPromptProvider;

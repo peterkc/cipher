@@ -5,7 +5,7 @@
  * Useful for fixed instructions, disclaimers, or constant prompt segments.
  */
 
-import { ProviderType, ProviderContext } from '../interfaces.js';
+import { ProviderContext, ProviderType } from '../interfaces.js';
 import { BasePromptProvider } from './base-provider.js';
 
 export interface StaticProviderConfig {

@@ -1,6 +1,6 @@
 import { MilvusClient } from '@zilliz/milvus2-sdk-node';
-import { logger } from '../logger/index.js';
 import { env } from '../env.js';
+import { logger } from '../logger/index.js';
 
 /**
  * Connection configuration for Milvus client pool

@@ -5,8 +5,8 @@
  * Validates input data and adds nodes with proper labels and properties.
  */
 
-import type { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import type { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Input schema for the add node tool

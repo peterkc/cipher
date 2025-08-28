@@ -19,32 +19,30 @@
  * ```
  */
 
-// Core types
-export type {
-	InternalTool,
-	InternalToolSet,
-	InternalToolCategory,
-	InternalToolHandler,
-	InternalToolManagerConfig,
-	InternalToolContext,
-	ToolExecutionStats,
-	ToolRegistrationResult,
-	IInternalToolManager,
-} from './types.js';
-
-// Constants and utilities
-export { INTERNAL_TOOL_PREFIX, createInternalToolName, isInternalToolName } from './types.js';
-
+export { InternalToolManager } from './manager.js';
 // Core classes
 export { InternalToolRegistry } from './registry.js';
-export { InternalToolManager } from './manager.js';
+// Core types
+export type {
+	IInternalToolManager,
+	InternalTool,
+	InternalToolCategory,
+	InternalToolContext,
+	InternalToolHandler,
+	InternalToolManagerConfig,
+	InternalToolSet,
+	ToolExecutionStats,
+	ToolRegistrationResult,
+} from './types.js';
+// Constants and utilities
+export { createInternalToolName, INTERNAL_TOOL_PREFIX, isInternalToolName } from './types.js';
+export type { CombinedToolSet, UnifiedToolManagerConfig } from './unified-tool-manager.js';
 export { UnifiedToolManager } from './unified-tool-manager.js';
-export type { UnifiedToolManagerConfig, CombinedToolSet } from './unified-tool-manager.js';
 
-// Import types for use in functions
-import type { InternalToolCategory, InternalToolManagerConfig } from './types.js';
 import { InternalToolManager } from './manager.js';
 import { InternalToolRegistry } from './registry.js';
+// Import types for use in functions
+import type { InternalToolCategory, InternalToolManagerConfig } from './types.js';
 
 // Version and metadata
 export const INTERNAL_TOOLS_VERSION = '1.0.0';

@@ -8,10 +8,10 @@
  * requiring an actual Redis server for testing.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { Redis } from 'ioredis';
-import { RedisBackend } from '../redis-backend.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { RedisBackendConfig } from '../../config.js';
+import { RedisBackend } from '../redis-backend.js';
 
 // Mock pipeline methods
 const mockPipeline = {

@@ -7,25 +7,25 @@
  * @module knowledge_graph/backend/in-memory
  */
 
-import { Logger, createLogger } from '../../logger/logger.js';
+import { createLogger, Logger } from '../../logger/logger.js';
+import type { InMemoryBackendConfig } from '../config.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
 import type { KnowledgeGraph } from './knowledge-graph.js';
 import type {
-	GraphNode,
+	EdgeFilters,
 	GraphEdge,
+	GraphNode,
 	GraphQuery,
 	GraphResult,
 	NodeFilters,
-	EdgeFilters,
 } from './types.js';
 import {
+	EdgeNotFoundError,
+	GraphValidationError,
+	InvalidQueryError,
 	KnowledgeGraphConnectionError,
 	NodeNotFoundError,
-	EdgeNotFoundError,
-	InvalidQueryError,
-	GraphValidationError,
 } from './types.js';
-import type { InMemoryBackendConfig } from '../config.js';
-import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
 
 /**
  * In-memory storage entry for tracking metadata

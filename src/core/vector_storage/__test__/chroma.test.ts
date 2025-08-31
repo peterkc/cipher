@@ -5,11 +5,11 @@
  * Verifies vector operations, similarity search, metadata handling, and payload adapter integration.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ChromaBackend } from '../backend/chroma.js';
 import { DefaultChromaPayloadAdapter } from '../backend/chroma-payload-adapter.js';
-import { VectorStoreError, VectorDimensionError } from '../backend/types.js';
 import type { ChromaBackendConfig } from '../backend/types.js';
+import { VectorDimensionError, VectorStoreError } from '../backend/types.js';
 
 // Mock ChromaDB client
 const mockCollection = {

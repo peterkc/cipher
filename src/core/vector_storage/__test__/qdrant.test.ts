@@ -5,12 +5,12 @@
  * Uses mocking since Qdrant requires external service.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { QdrantBackend } from '../backend/qdrant.js';
 import {
-	VectorStoreError,
-	VectorStoreConnectionError,
 	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
 import { BACKEND_TYPES } from '../constants.js';
 

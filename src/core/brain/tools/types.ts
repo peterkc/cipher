@@ -6,11 +6,11 @@
  * session control, and system operations.
  */
 
-import { Tool, ToolExecutionResult } from '../../mcp/types.js';
-import type { EmbeddingManager } from '../embedding/index.js';
-import type { VectorStoreManager } from '../../vector_storage/index.js';
-import type { ILLMService } from '../llm/index.js';
 import type { KnowledgeGraphManager } from '../../knowledge_graph/manager.js';
+import { Tool, ToolExecutionResult } from '../../mcp/types.js';
+import type { VectorStoreManager } from '../../vector_storage/index.js';
+import type { EmbeddingManager } from '../embedding/index.js';
+import type { ILLMService } from '../llm/index.js';
 
 /**
  * Categories for organizing internal tools

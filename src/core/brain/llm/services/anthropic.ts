@@ -1,15 +1,15 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { ToolSet } from '../../../mcp/types.js';
-import { MCPManager } from '../../../mcp/manager.js';
-import { UnifiedToolManager, CombinedToolSet } from '../../tools/unified-tool-manager.js';
-import { ContextManager } from '../messages/manager.js';
-import { ImageData } from '../messages/types.js';
-import { ILLMService, LLMServiceConfig } from './types.js';
-import { logger } from '../../../logger/index.js';
-import { formatToolResult } from '../utils/tool-result-formatter.js';
+import { v4 as uuidv4 } from 'uuid';
 import { EventManager } from '../../../events/event-manager.js';
 import { SessionEvents } from '../../../events/event-types.js';
-import { v4 as uuidv4 } from 'uuid';
+import { logger } from '../../../logger/index.js';
+import { MCPManager } from '../../../mcp/manager.js';
+import { ToolSet } from '../../../mcp/types.js';
+import { CombinedToolSet, UnifiedToolManager } from '../../tools/unified-tool-manager.js';
+import { ContextManager } from '../messages/manager.js';
+import { ImageData } from '../messages/types.js';
+import { formatToolResult } from '../utils/tool-result-formatter.js';
+import { ILLMService, LLMServiceConfig } from './types.js';
 
 export class AnthropicService implements ILLMService {
 	private anthropic: Anthropic;

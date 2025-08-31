@@ -5,8 +5,8 @@
  * Uses NLP techniques to identify named entities and relationships.
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
 import { logger } from '../../../../logger/index.js';
+import { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Extract entities tool for finding and adding entities from text to knowledge graph

@@ -1,19 +1,19 @@
-import { IMessageFormatter } from './formatters/types.js';
-import { logger } from '../../../logger/index.js';
-import { InternalMessage, ImageData } from './types.js';
-import { getImageData } from './utils.js';
 import { EnhancedPromptManager } from '../../../brain/systemPrompt/enhanced-manager.js';
-import { ITokenizer, createTokenizer, getTokenizerConfigForModel } from '../tokenizer/index.js';
+import { logger } from '../../../logger/index.js';
 import {
-	ICompressionStrategy,
-	createCompressionStrategy,
-	getCompressionConfigForProvider,
-	EnhancedInternalMessage,
-	CompressionResult,
 	CompressionLevel,
+	CompressionResult,
+	createCompressionStrategy,
+	EnhancedInternalMessage,
+	getCompressionConfigForProvider,
+	ICompressionStrategy,
 } from '../compression/index.js';
 import { assignMessagePriorities } from '../compression/utils.js';
+import { createTokenizer, getTokenizerConfigForModel, ITokenizer } from '../tokenizer/index.js';
+import { IMessageFormatter } from './formatters/types.js';
 import { IConversationHistoryProvider } from './history/types.js';
+import { ImageData, InternalMessage } from './types.js';
+import { getImageData } from './utils.js';
 
 export class ContextManager {
 	private promptManager: EnhancedPromptManager;

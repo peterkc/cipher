@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import { TokenizerCache, getTokenizerCache } from '../cache.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { getTokenizerCache, TokenizerCache } from '../cache.js';
 import { ITokenizer, TokenizerConfig } from '../types.js';
 
 // Mock tokenizer for testing

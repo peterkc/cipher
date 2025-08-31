@@ -4,17 +4,17 @@
  * Tests the complete event flow across all services and components.
  */
 
+import { vi } from 'vitest';
+import { EventAwareVectorStore } from '../../vector_storage/event-aware-store.js';
 import { EventManager } from '../event-manager.js';
+import { ServiceEvents, SessionEvents } from '../event-types.js';
 // import { EventFilterManager } from '../filtering.js';
 import { CommonFilters } from '../filtering.js';
-import { EventPersistence } from '../persistence.js';
 // import { MemoryEventStorage } from '../persistence.js';
 import { EventMetricsCollector } from '../metrics.js';
-import { WebhookForwarder } from '../webhooks.js';
+import { EventPersistence } from '../persistence.js';
 import { EventReplay } from '../replay.js';
-import { ServiceEvents, SessionEvents } from '../event-types.js';
-import { EventAwareVectorStore } from '../../vector_storage/event-aware-store.js';
-import { vi } from 'vitest';
+import { WebhookForwarder } from '../webhooks.js';
 
 // Mock vector store for testing
 class MockVectorStore {

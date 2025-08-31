@@ -1,5 +1,5 @@
-import { IMessageFormatter } from './types.js';
 import { InternalMessage } from '../types.js';
+import { IMessageFormatter } from './types.js';
 
 // Anthropic (Claude) formatter
 export class BedrockAnthropicMessageFormatter implements IMessageFormatter {

@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
 	getAllToolDefinitions,
-	registerAllTools,
 	getToolInfo,
 	getToolsByCategory,
+	registerAllTools,
 	TOOL_CATEGORIES,
 } from '../definitions/index.js';
 import { extractAndOperateMemoryTool } from '../definitions/memory/index.js';

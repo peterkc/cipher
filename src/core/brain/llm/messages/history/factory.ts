@@ -1,7 +1,7 @@
 import { StorageManager } from '../../../../storage/manager.js';
 import { DatabaseHistoryProvider } from './database.js';
-import type { IConversationHistoryProvider } from './types.js';
 import { MultiBackendHistoryProvider } from './multi-backend.js';
+import type { IConversationHistoryProvider } from './types.js';
 import { WALHistoryProvider } from './wal.js';
 
 export function createDatabaseHistoryProvider(

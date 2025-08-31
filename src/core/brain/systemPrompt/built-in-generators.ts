@@ -5,8 +5,8 @@
  * These generators can be used in dynamic providers to inject runtime context.
  */
 
-import { DynamicContentGenerator } from './providers/dynamic-provider.js';
 import { ProviderContext } from './interfaces.js';
+import { DynamicContentGenerator } from './providers/dynamic-provider.js';
 
 /**
  * Generate timestamp-based content

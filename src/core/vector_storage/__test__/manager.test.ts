@@ -5,12 +5,12 @@
  * connection logic, fallback mechanisms, and lifecycle management.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { VectorStoreManager } from '../manager.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { InMemoryBackend } from '../backend/in-memory.js';
-import { BACKEND_TYPES } from '../constants.js';
-import type { VectorStoreConfig } from '../types.js';
 import type { QdrantBackendConfig } from '../config.js';
+import { BACKEND_TYPES } from '../constants.js';
+import { VectorStoreManager } from '../manager.js';
+import type { VectorStoreConfig } from '../types.js';
 
 // Mock the logger to reduce noise in tests
 vi.mock('../../logger/index.js', () => ({

@@ -2,11 +2,11 @@
  * Tests for File-based Prompt Provider
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { ProviderContext, ProviderType } from '../../interfaces.js';
 import { FilePromptProvider } from '../../providers/file-provider.js';
-import { ProviderType, ProviderContext } from '../../interfaces.js';
 
 // [TEST CLEANUP] Removed file watching and any other tests incompatible with new provider logic. Only current provider logic is tested here.
 describe('FilePromptProvider', () => {

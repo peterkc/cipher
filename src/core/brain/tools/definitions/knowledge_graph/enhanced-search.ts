@@ -12,9 +12,9 @@
  * - Natural language query support
  */
 
-import { InternalTool, InternalToolContext } from '../../types.js';
+import type { GraphEdge, GraphNode } from '../../../../knowledge_graph/backend/types.js';
 import { logger } from '../../../../logger/index.js';
-import type { GraphNode, GraphEdge } from '../../../../knowledge_graph/backend/types.js';
+import { InternalTool, InternalToolContext } from '../../types.js';
 
 /**
  * Enhanced search configuration

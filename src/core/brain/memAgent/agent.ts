@@ -1,19 +1,18 @@
 import { MCPManager } from '@core/mcp/manager.js';
-import { AgentServices } from '../../utils/service-initializer.js';
-import { createAgentServices } from '../../utils/service-initializer.js';
+import { logger } from '../../logger/index.js';
+import { IMCPClient, McpServerConfig } from '../../mcp/types.js';
+import { ConversationSession } from '../../session/coversation-session.js';
+import { SessionManager } from '../../session/session-manager.js';
+import { AgentServices, createAgentServices } from '../../utils/service-initializer.js';
+import { LLMConfig } from '../llm/config.js';
 import {
 	createEnhancedAgentServices,
-	shouldEnableLazyLoading,
 	LazyAgentServices,
+	shouldEnableLazyLoading,
 } from '../memory/enhanced-service-initializer.js';
 import { EnhancedPromptManager } from '../systemPrompt/enhanced-manager.js';
-import { MemAgentStateManager } from './state-manager.js';
-import { SessionManager } from '../../session/session-manager.js';
-import { ConversationSession } from '../../session/coversation-session.js';
 import { AgentConfig } from './config.js';
-import { logger } from '../../logger/index.js';
-import { LLMConfig } from '../llm/config.js';
-import { IMCPClient, McpServerConfig } from '../../mcp/types.js';
+import { MemAgentStateManager } from './state-manager.js';
 
 const requiredServices: (keyof AgentServices)[] = [
 	'mcpManager',

@@ -2,11 +2,11 @@
  * Tests for System Prompt Configuration Manager
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { SystemPromptConfigManager } from '../config-manager.js';
-import { SystemPromptConfig, ProviderType } from '../interfaces.js';
+import { ProviderType, SystemPromptConfig } from '../interfaces.js';
 
 describe('SystemPromptConfigManager', () => {
 	let configManager: SystemPromptConfigManager;

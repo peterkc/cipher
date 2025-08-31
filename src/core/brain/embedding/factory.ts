@@ -7,6 +7,7 @@
  */
 
 import { logger } from '../../logger/index.js';
+import { type BackendConfig, type Embedder, EmbeddingValidationError } from './backend/types.js';
 import {
 	parseEmbeddingConfigFromEnv,
 	// validateEmbeddingConfig,
@@ -18,17 +19,17 @@ import {
 	// type AWSBedrockEmbeddingConfig as ZodAWSBedrockEmbeddingConfig,
 	// type LMStudioEmbeddingConfig as ZodLMStudioEmbeddingConfig,
 } from './config.js';
-import { type Embedder, type BackendConfig, EmbeddingValidationError } from './backend/types.js';
 
 // Re-export BackendConfig for external use
 export type { BackendConfig } from './backend/types.js';
-import { OpenAIEmbedder } from './backend/openai.js';
-import { GeminiEmbedder } from './backend/gemini.js';
-import { OllamaEmbedder } from './backend/ollama.js';
-import { VoyageEmbedder } from './backend/voyage.js';
-import { QwenEmbedder } from './backend/qwen.js';
+
 import { AWSBedrockEmbedder } from './backend/aws.js';
+import { GeminiEmbedder } from './backend/gemini.js';
 import { LMStudioEmbedder } from './backend/lmstudio.js';
+import { OllamaEmbedder } from './backend/ollama.js';
+import { OpenAIEmbedder } from './backend/openai.js';
+import { QwenEmbedder } from './backend/qwen.js';
+import { VoyageEmbedder } from './backend/voyage.js';
 
 /**
  * Embedding factory interface

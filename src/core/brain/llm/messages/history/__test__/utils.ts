@@ -4,6 +4,7 @@ try {
 } catch {
 	vi = { fn: (impl: any) => impl };
 }
+
 import type { InternalMessage } from '../../types.js';
 
 export function makeFakeMessage(

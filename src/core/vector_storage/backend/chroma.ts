@@ -14,18 +14,18 @@
  */
 
 import { ChromaClient } from 'chromadb';
-import type { VectorStore } from './vector-store.js';
+import { createLogger, Logger } from '../../logger/index.js';
+import { DEFAULTS, ERROR_MESSAGES, LOG_PREFIXES } from '../constants.js';
+import { DefaultChromaPayloadAdapter } from './chroma-payload-adapter.js';
 import type {
-	SearchFilters,
-	VectorStoreResult,
 	ChromaBackendConfig,
 	ChromaPayloadAdapter,
 	PayloadTransformationConfig,
+	SearchFilters,
+	VectorStoreResult,
 } from './types.js';
-import { VectorStoreError, VectorStoreConnectionError, VectorDimensionError } from './types.js';
-import { Logger, createLogger } from '../../logger/index.js';
-import { LOG_PREFIXES, DEFAULTS, ERROR_MESSAGES } from '../constants.js';
-import { DefaultChromaPayloadAdapter } from './chroma-payload-adapter.js';
+import { VectorDimensionError, VectorStoreConnectionError, VectorStoreError } from './types.js';
+import type { VectorStore } from './vector-store.js';
 
 /**
  * ChromaDB filter structure

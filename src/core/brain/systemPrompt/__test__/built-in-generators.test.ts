@@ -2,15 +2,15 @@
  * Tests for Built-in Dynamic Content Generators
  */
 
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import {
-	timestampGenerator,
-	sessionContextGenerator,
-	memoryContextGenerator,
-	environmentGenerator,
 	conditionalGenerator,
-	registerBuiltInGenerators,
+	environmentGenerator,
 	getBuiltInGeneratorNames,
+	memoryContextGenerator,
+	registerBuiltInGenerators,
+	sessionContextGenerator,
+	timestampGenerator,
 } from '../built-in-generators.js';
 import { ProviderContext } from '../interfaces.js';
 

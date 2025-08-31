@@ -12,18 +12,16 @@ export type { DatabaseBackend } from './database-backend.js';
 
 // Implementation exports
 export { InMemoryBackend } from './in-memory.js';
+export { PostgresBackend } from './postgresql.js';
 export { RedisBackend } from './redis-backend.js';
 export { SqliteBackend } from './sqlite.js';
-export { PostgresBackend } from './postgresql.js';
-
-// Type exports
-export { StorageError, StorageConnectionError, StorageNotFoundError } from './types.js';
-
 export type {
-	StorageBackends,
 	BackendConfig,
 	InMemoryBackendConfig,
+	PostgresBackendConfig,
 	RedisBackendConfig,
 	SqliteBackendConfig,
-	PostgresBackendConfig,
+	StorageBackends,
 } from './types.js';
+// Type exports
+export { StorageConnectionError, StorageError, StorageNotFoundError } from './types.js';

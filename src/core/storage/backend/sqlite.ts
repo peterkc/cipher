@@ -8,14 +8,14 @@
  */
 
 import { Database } from 'bun:sqlite';
+import { existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
-import { existsSync } from 'fs';
-import type { DatabaseBackend } from './database-backend.js';
+import { createLogger, Logger } from '../../logger/index.js';
 import type { SqliteBackendConfig } from '../config.js';
-import { StorageError, StorageConnectionError } from './types.js';
 import { BACKEND_TYPES, ERROR_MESSAGES } from '../constants.js';
-import { Logger, createLogger } from '../../logger/index.js';
+import type { DatabaseBackend } from './database-backend.js';
+import { StorageConnectionError, StorageError } from './types.js';
 
 /**
  * SQLite Database Backend

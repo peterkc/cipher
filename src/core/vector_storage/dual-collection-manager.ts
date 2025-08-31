@@ -5,12 +5,12 @@
  * Built on top of the existing VectorStoreManager infrastructure.
  */
 
-import { VectorStoreManager } from './manager.js';
-import { VectorStore } from './backend/vector-store.js';
-import type { VectorStoreConfig } from './types.js';
-import { Logger, createLogger } from '../logger/index.js';
 import { env } from '../env.js';
 import { EventManager } from '../events/event-manager.js';
+import { createLogger, Logger } from '../logger/index.js';
+import { VectorStore } from './backend/vector-store.js';
+import { VectorStoreManager } from './manager.js';
+import type { VectorStoreConfig } from './types.js';
 
 /**
  * Collection type identifier

@@ -5,10 +5,10 @@
  */
 
 import { EventManager } from '../event-manager.js';
-// import { EventFilterManager, CommonFilters } from '../filtering.js';
-import { EventPersistence } from '../persistence.js';
 // import { MemoryEventStorage } from '../persistence.js';
 import { ServiceEvents, SessionEvents } from '../event-types.js';
+// import { EventFilterManager, CommonFilters } from '../filtering.js';
+import { EventPersistence } from '../persistence.js';
 
 describe('Event System Performance Tests', () => {
 	let eventManager: EventManager;

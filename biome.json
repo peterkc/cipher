@@ -257,14 +257,7 @@
 		{
 			"includes": ["app/web/client/script.js"],
 			"javascript": {
-				"globals": [
-					"document",
-					"console",
-					"WebSocket",
-					"setTimeout",
-					"clearTimeout",
-					"window"
-				]
+				"globals": ["document", "console", "WebSocket", "setTimeout", "clearTimeout", "window"]
 			},
 			"linter": { "rules": { "correctness": { "noUnusedVariables": "warn" } } }
 		}

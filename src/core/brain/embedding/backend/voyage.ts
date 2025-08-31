@@ -6,9 +6,9 @@
  */
 
 import { logger } from '../../../logger/index.js';
-import type { Embedder, EmbeddingConfig } from './types.js';
-import { EmbeddingError, EmbeddingConnectionError, EmbeddingValidationError } from './types.js';
 import { LOG_PREFIXES } from '../constants.js';
+import type { Embedder, EmbeddingConfig } from './types.js';
+import { EmbeddingConnectionError, EmbeddingError, EmbeddingValidationError } from './types.js';
 
 /**
  * Voyage-specific configuration interface

@@ -7,13 +7,13 @@
  * - searchReasoningPatterns
  */
 
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
-	extractReasoningSteps,
 	evaluateReasoning,
-	searchReasoningPatterns,
+	extractReasoningSteps,
 	ReasoningStepSchema,
 	ReasoningTraceSchema,
+	searchReasoningPatterns,
 } from '../def_reflective_memory_tools.js';
 
 // Mock the logger to avoid console output during tests
@@ -76,11 +76,9 @@ Result: Function complete with proper validation.
 			expect(thoughtSteps.length).toBeGreaterThan(0);
 
 			// Steps should not have confidence fields (removed in new requirements)
-			expect(
-				result.result.trace.steps.every(
-					(s: any) => !Object.prototype.hasOwnProperty.call(s, 'confidence')
-				)
-			).toBe(true);
+			expect(result.result.trace.steps.every((s: any) => !Object.hasOwn(s, 'confidence'))).toBe(
+				true
+			);
 		});
 
 		it('should extract implicit reasoning patterns when no explicit markup', async () => {

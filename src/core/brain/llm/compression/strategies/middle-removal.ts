@@ -1,21 +1,21 @@
+import { logger } from '../../../../logger/index.js';
 import {
-	ICompressionStrategy,
 	CompressionConfig,
+	CompressionLevel,
 	CompressionResult,
 	EnhancedInternalMessage,
-	CompressionLevel,
+	ICompressionStrategy,
 } from '../types.js';
 import {
 	assignMessagePriorities,
-	getPreservableMessages,
-	getRemovableMessages,
 	calculateTotalTokens,
 	createCompressionResult,
-	validateCompressionResult,
-	logCompressionOperation,
 	ensureMessageIds,
+	getPreservableMessages,
+	getRemovableMessages,
+	logCompressionOperation,
+	validateCompressionResult,
 } from '../utils.js';
-import { logger } from '../../../../logger/index.js';
 
 /**
  * Middle Removal Strategy

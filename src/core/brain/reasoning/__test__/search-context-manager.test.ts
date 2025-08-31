@@ -2,7 +2,7 @@
  * Tests for Search Context Manager
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { SearchContextManager } from '../search-context-manager.js';
 
 // Mock logger

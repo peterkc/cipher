@@ -1,12 +1,12 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
 	createCompressionStrategy,
 	createCompressionStrategySync,
 	getCompressionConfigForProvider,
 } from '../factory.js';
+import { HybridStrategy } from '../strategies/hybrid.js';
 import { MiddleRemovalStrategy } from '../strategies/middle-removal.js';
 import { OldestRemovalStrategy } from '../strategies/oldest-removal.js';
-import { HybridStrategy } from '../strategies/hybrid.js';
 import { CompressionConfigSchema } from '../types.js';
 
 describe('Compression Factory', () => {

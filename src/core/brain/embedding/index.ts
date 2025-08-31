@@ -46,66 +46,63 @@
  * ```
  */
 
-// Export types
-export type {
-	Embedder,
-	EmbeddingConfig,
-	OpenAIEmbeddingConfig,
-	BackendConfig,
-	EmbeddingResult,
-	BatchEmbeddingResult,
-	HealthCheckResult,
-	EmbedderInfo,
-	EmbeddingStats,
-	EmbeddingEnvConfig,
-} from './types.js';
-
-// Export error classes
+// Export configuration utilities
 export {
-	EmbeddingError,
-	EmbeddingConnectionError,
-	EmbeddingDimensionError,
-	EmbeddingRateLimitError,
-	EmbeddingQuotaError,
-	EmbeddingValidationError,
-} from './types.js';
+	EmbeddingConfigSchema,
+	parseEmbeddingConfig,
+	parseEmbeddingConfigFromEnv,
+	validateEmbeddingConfig,
+} from './config.js';
+// Export constants for external use
+export {
+	DEFAULTS,
+	MODEL_DIMENSIONS,
+	OPENAI_MODELS,
+	PROVIDER_TYPES,
+	VALIDATION_LIMITS,
+} from './constants.js';
 
 // Export factory functions
 export {
 	createEmbedder,
 	createEmbedderFromEnv,
+	EMBEDDING_FACTORIES,
+	type EmbeddingFactory,
 	getSupportedProviders,
 	isProviderSupported,
 	validateEmbeddingConfiguration,
-	EMBEDDING_FACTORIES,
-	type EmbeddingFactory,
 } from './factory.js';
 
 // Export manager
 export { EmbeddingManager, SessionEmbeddingState } from './manager.js';
-
-// Export configuration utilities
+// Export types
+export type {
+	BackendConfig,
+	BatchEmbeddingResult,
+	Embedder,
+	EmbedderInfo,
+	EmbeddingConfig,
+	EmbeddingEnvConfig,
+	EmbeddingResult,
+	EmbeddingStats,
+	HealthCheckResult,
+	OpenAIEmbeddingConfig,
+} from './types.js';
+// Export error classes
 export {
-	parseEmbeddingConfig,
-	parseEmbeddingConfigFromEnv,
-	validateEmbeddingConfig,
-	EmbeddingConfigSchema,
-} from './config.js';
-
-// Export constants for external use
-export {
-	PROVIDER_TYPES,
-	OPENAI_MODELS,
-	MODEL_DIMENSIONS,
-	DEFAULTS,
-	VALIDATION_LIMITS,
-} from './constants.js';
+	EmbeddingConnectionError,
+	EmbeddingDimensionError,
+	EmbeddingError,
+	EmbeddingQuotaError,
+	EmbeddingRateLimitError,
+	EmbeddingValidationError,
+} from './types.js';
 
 // Export utilities
 export {
-	getEmbeddingConfigFromEnv,
-	isEmbeddingConfigAvailable,
-	getEmbeddingConfigSummary,
-	validateEmbeddingEnv,
 	analyzeProviderConfiguration,
+	getEmbeddingConfigFromEnv,
+	getEmbeddingConfigSummary,
+	isEmbeddingConfigAvailable,
+	validateEmbeddingEnv,
 } from './utils.js';

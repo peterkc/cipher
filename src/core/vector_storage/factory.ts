@@ -7,14 +7,14 @@
  * @module vector_storage/factory
  */
 
-import { VectorStoreManager } from './manager.js';
-import { DualCollectionVectorManager } from './dual-collection-manager.js';
-import type { VectorStoreConfig } from './types.js';
-import { VectorStore } from './backend/vector-store.js';
-import { createLogger } from '../logger/index.js';
-import { LOG_PREFIXES } from './constants.js';
+import { createServiceKey, getServiceCache } from '../brain/memory/service-cache.js';
 import { env } from '../env.js';
-import { getServiceCache, createServiceKey } from '../brain/memory/service-cache.js';
+import { createLogger } from '../logger/index.js';
+import { VectorStore } from './backend/vector-store.js';
+import { LOG_PREFIXES } from './constants.js';
+import { DualCollectionVectorManager } from './dual-collection-manager.js';
+import { VectorStoreManager } from './manager.js';
+import type { VectorStoreConfig } from './types.js';
 
 /**
  * Factory result containing both the manager and vector store

@@ -5,10 +5,10 @@
  * connection logic, fallback mechanisms, and lifecycle management.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { StorageManager } from '../manager.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { InMemoryBackend } from '../backend/in-memory.js';
 import { BACKEND_TYPES } from '../constants.js';
+import { StorageManager } from '../manager.js';
 import type { StorageConfig } from '../types.js';
 
 // Mock the logger to reduce noise in tests

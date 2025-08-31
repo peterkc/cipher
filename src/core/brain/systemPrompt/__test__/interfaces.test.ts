@@ -2,7 +2,7 @@
  * Tests for System Prompt Architecture Interfaces
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { ProviderType } from '../interfaces.js';
 
 describe('System Prompt Interfaces', () => {

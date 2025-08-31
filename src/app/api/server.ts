@@ -1,35 +1,33 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import http from 'http';
-import { WebSocketServer, WebSocket } from 'ws';
+import { initializeAgentCardResource, initializeMcpServer } from '@app/mcp/mcp_handler.js';
 import { MemAgent } from '@core/brain/memAgent/index.js';
 import { logger } from '@core/logger/index.js';
-import { errorResponse, successResponse, ERROR_CODES } from './utils/response.js';
-import {
-	requestIdMiddleware,
-	requestLoggingMiddleware,
-	errorLoggingMiddleware,
-} from './middleware/logging.js';
 import { Server as McpServer } from '@modelcontextprotocol/sdk/server/index.js';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
-import { initializeMcpServer, initializeAgentCardResource } from '@app/mcp/mcp_handler.js';
-
-// Import WebSocket components
-import { WebSocketConnectionManager } from './websocket/connection-manager.js';
-import { WebSocketMessageRouter } from './websocket/message-router.js';
-import { WebSocketEventSubscriber } from './websocket/event-subscriber.js';
-import { WebSocketMessage, WebSocketConfig } from './websocket/types.js';
-
-// Import route handlers
-import { createMessageRoutes } from './routes/message.js';
-import { createSessionRoutes } from './routes/session.js';
-import { createMcpRoutes } from './routes/mcp.js';
+import cors from 'cors';
+import express, { Application, NextFunction, Request, Response } from 'express';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import http from 'http';
+import { WebSocket, WebSocketServer } from 'ws';
+import {
+	errorLoggingMiddleware,
+	requestIdMiddleware,
+	requestLoggingMiddleware,
+} from './middleware/logging.js';
 import { createConfigRoutes } from './routes/config.js';
 import { createLlmRoutes } from './routes/llm.js';
+import { createMcpRoutes } from './routes/mcp.js';
+// Import route handlers
+import { createMessageRoutes } from './routes/message.js';
 import { createSearchRoutes } from './routes/search.js';
+import { createSessionRoutes } from './routes/session.js';
 import { createWebhookRoutes } from './routes/webhook.js';
+import { ERROR_CODES, errorResponse, successResponse } from './utils/response.js';
+// Import WebSocket components
+import { WebSocketConnectionManager } from './websocket/connection-manager.js';
+import { WebSocketEventSubscriber } from './websocket/event-subscriber.js';
+import { WebSocketMessageRouter } from './websocket/message-router.js';
+import { WebSocketConfig, WebSocketMessage } from './websocket/types.js';
 
 export interface ApiServerConfig {
 	port: number;

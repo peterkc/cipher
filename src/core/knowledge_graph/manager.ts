@@ -8,7 +8,7 @@
  * @module knowledge_graph/manager
  */
 
-import { Logger, createLogger } from '../logger/logger.js';
+import { createLogger, Logger } from '../logger/logger.js';
 import type { KnowledgeGraph } from './backend/knowledge-graph.js';
 import { KnowledgeGraphConnectionError } from './backend/types.js';
 import type { KnowledgeGraphConfig } from './config.js';

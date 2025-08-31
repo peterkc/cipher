@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { MultiBackendHistoryProvider } from '../multi-backend.js';
-import { WALHistoryProvider } from '../wal.js';
-import type { IConversationHistoryProvider } from '../types.js';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { InternalMessage } from '../../types.js';
+import { MultiBackendHistoryProvider } from '../multi-backend.js';
+import type { IConversationHistoryProvider } from '../types.js';
+import { WALHistoryProvider } from '../wal.js';
 
 function makeMessage(content: string): InternalMessage {
 	return { role: 'user', content };

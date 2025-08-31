@@ -1,13 +1,13 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { AwsService } from '../aws.js';
-import { MCPManager } from '../../../../mcp/manager.js';
-import { ContextManager } from '../../messages/manager.js';
-import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
 import {
 	BedrockRuntimeClient,
 	// InvokeModelCommand,
 	// InvokeModelWithResponseStreamCommand,
 } from '@aws-sdk/client-bedrock-runtime';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { MCPManager } from '../../../../mcp/manager.js';
+import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
+import { ContextManager } from '../../messages/manager.js';
+import { AwsService } from '../aws.js';
 
 // Mock AWS SDK
 vi.mock('@aws-sdk/client-bedrock-runtime', () => ({

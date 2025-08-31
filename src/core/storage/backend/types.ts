@@ -18,11 +18,11 @@ export type { CacheBackend, DatabaseBackend };
 // Re-export configuration types from the config module
 export type {
 	BackendConfig,
-	StorageConfig,
 	InMemoryBackendConfig,
+	PostgresBackendConfig,
 	RedisBackendConfig,
 	SqliteBackendConfig,
-	PostgresBackendConfig,
+	StorageConfig,
 } from '../config.js';
 
 /**

@@ -1,12 +1,12 @@
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { FaissBackend } from '../backend/faiss.js';
 import {
 	VectorDimensionError,
-	VectorStoreError,
 	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
-import * as fs from 'node:fs/promises';
-import * as path from 'node:path';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 // In-memory mock for file system data
 const mockFileContent: Record<string, string> = {};

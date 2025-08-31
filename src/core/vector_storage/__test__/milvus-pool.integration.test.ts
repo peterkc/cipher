@@ -1,7 +1,7 @@
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MilvusBackend } from '../backend/milvus.js';
-import { getMilvusConnectionPool } from '../connection-pool.js';
 import type { MilvusBackendConfig } from '../backend/types.js';
+import { getMilvusConnectionPool } from '../connection-pool.js';
 
 // Mock the Milvus client and its methods
 vi.mock('@zilliz/milvus2-sdk-node', () => ({

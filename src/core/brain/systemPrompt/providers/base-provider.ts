@@ -5,7 +5,7 @@
  * for all prompt provider implementations.
  */
 
-import { PromptProvider, ProviderType, ProviderContext } from '../interfaces.js';
+import { PromptProvider, ProviderContext, ProviderType } from '../interfaces.js';
 
 export abstract class BasePromptProvider implements PromptProvider {
 	public readonly id: string;

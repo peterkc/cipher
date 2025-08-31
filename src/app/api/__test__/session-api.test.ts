@@ -3,9 +3,9 @@
  * Verifies the critical fixes for session deletion, error serialization, and API performance
  */
 
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import express from 'express';
 import request from 'supertest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock the logger
 vi.mock('../../../core/logger/index.js', () => ({

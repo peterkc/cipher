@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { WALHistoryProvider } from '../wal.js';
+import { beforeEach, describe, expect, it } from 'vitest';
 import type { InternalMessage } from '../../types.js';
+import { WALHistoryProvider } from '../wal.js';
 
 function makeMessage(content: string): InternalMessage {
 	return { role: 'user', content };

@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { QwenService, QwenOptions } from '../qwen.js';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { QwenOptions, QwenService } from '../qwen.js';
 
 // Mock OpenAI client
 const mockOpenAI = {

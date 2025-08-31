@@ -5,14 +5,14 @@
  * Adapted from OpenHands implementation with Cipher-specific integrations.
  */
 
-import { spawn, ChildProcess } from 'child_process';
+import { ChildProcess, spawn } from 'child_process';
 import { EventEmitter } from 'events';
+import { logger } from '../../../../logger/index.js';
 import {
 	createInternalToolName,
 	type InternalTool,
 	type InternalToolHandler,
 } from '../../types.js';
-import { logger } from '../../../../logger/index.js';
 
 /**
  * Command execution result structure

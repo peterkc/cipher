@@ -1,6 +1,6 @@
-import { TokenCount } from './types.js';
-import { InternalMessage } from '../messages/types.js';
 import { logger } from '../../../logger/index.js';
+import { InternalMessage } from '../messages/types.js';
+import { TokenCount } from './types.js';
 
 /**
  * Extract text content from various message content formats

@@ -1,0 +1,42 @@
+# Lefthook configuration for cipher project
+# Git hooks manager with parallel execution and advanced filtering
+
+pre-commit:
+  parallel: true
+  commands:
+    # Code quality and formatting with BiomeJS
+    format-code:
+      run: bun run check:write
+      glob: "*.{ts,js,jsx,tsx,json}"
+      stage_fixed: true
+      
+    # TypeScript compilation check
+    type-check:
+      run: bun run typecheck
+      glob: "*.{ts,tsx}"
+      fail_fast: true
+      
+    # Unit test execution
+    test-units:
+      run: bun run test:ci
+      glob: "*.{ts,js}"
+      fail_fast: true
+      
+    # Build verification
+    build-check:
+      run: bun run build
+      fail_fast: true
+
+# Future hook potential for comprehensive validation
+pre-push:
+  commands:
+    integration-tests:
+      run: bun run test:integration
+      skip:
+        - merge
+        - rebase
+
+# Skip hooks for specific scenarios
+skip_output:
+  - meta
+  - summary

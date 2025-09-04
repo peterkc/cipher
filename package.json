@@ -104,7 +104,6 @@
 		"faiss-node": "^0.5.1",
 		"fs-extra": "^11.3.0",
 		"helmet": "^8.1.0",
-		"husky": "^9.1.7",
 		"ioredis": "^5.6.1",
 		"js-yaml": "^4.1.0",
 		"neo4j-driver": "^5.28.1",

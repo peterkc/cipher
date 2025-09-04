@@ -60,7 +60,6 @@ tests/
 docs/
 
 # Development files
-.husky/
 vitest.config.ts
 eslint.config.js
 

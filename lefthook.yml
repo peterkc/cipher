@@ -27,7 +27,7 @@ pre-commit:
       run: bun run build
       fail_fast: true
 
-# Future hook potential for comprehensive validation
+# Comprehensive validation before push
 pre-push:
   commands:
     integration-tests:

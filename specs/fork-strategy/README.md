@@ -16,6 +16,7 @@ The cipher fork has evolved substantial unique value through Bun migration, Left
 - **[Workflow Strategy](workflow-strategy.md)**: Day-to-day fork management workflows
 - **[Automation Tools](automation-tools.md)**: Scripts and tools for efficient fork maintenance  
 - **[Integration Guidelines](integration-guidelines.md)**: Decision frameworks for upstream adoption
+- **[Independence Planning](independence-planning.md)**: Fork evolution to independent project strategy
 
 ## Current Fork Analysis
 

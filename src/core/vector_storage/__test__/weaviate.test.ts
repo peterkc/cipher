@@ -5,18 +5,17 @@
  * Uses mocking since Weaviate requires external service.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock weaviate-ts-client before any imports
 vi.mock('weaviate-ts-client');
 
-import { WeaviateBackend } from '../backend/weaviate.js';
-
 import {
-	VectorStoreError,
-	VectorStoreConnectionError,
 	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
+import { WeaviateBackend } from '../backend/weaviate.js';
 
 // Mock the Weaviate client
 const mockWeaviateClient = {

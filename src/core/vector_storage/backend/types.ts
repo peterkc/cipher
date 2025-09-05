@@ -23,9 +23,8 @@ export type {
 	PineconeBackendConfig,
 	QdrantBackendConfig,
 	RedisBackendConfig,
-	FaissBackendConfig,
-	WeaviateBackendConfig,
 	VectorStoreConfig,
+	WeaviateBackendConfig,
 } from '../config.js';
 
 /**

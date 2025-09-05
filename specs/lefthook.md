@@ -1,9 +1,9 @@
 # Lefthook Migration Specification
 
-**Version**: 1.1.0  
-**Status**: ✅ Complete  
-**Context**: Git hooks management optimization for cipher project  
-**Implemented**: 2024-01-04  
+**Version**: 1.1.0
+**Status**: ✅ Complete
+**Context**: Git hooks management optimization for cipher project
+**Implemented**: 2024-01-04
 
 ## Executive Summary
 
@@ -27,7 +27,7 @@ Migrate to Lefthook for enhanced git hook management:
 
 `★ Insight ─────────────────────────────────────`
 • Lefthook's parallel execution reduces commit-time delays significantly
-• YAML configuration provides better maintainability than shell scripts  
+• YAML configuration provides better maintainability than shell scripts
 • Go-based implementation eliminates Node.js dependency overhead
 `─────────────────────────────────────────────────`
 
@@ -43,7 +43,7 @@ Migrate to Lefthook for enhanced git hook management:
 
 **Core Components**:
 - **Lefthook binary**: Single Go executable managing all hooks
-- **Configuration file**: `lefthook.yml` defining hook workflows  
+- **Configuration file**: `lefthook.yml` defining hook workflows
 - **Integration scripts**: Bun-based quality gates and build processes
 
 **Hook Workflow Design**:
@@ -104,19 +104,19 @@ pre-commit:
       run: bun run check:write
       glob: "*.{ts,js,json}"
       stage_fixed: true
-      
+
     # TypeScript compilation check
     type-check:
       run: bun run typecheck
       glob: "*.{ts,tsx}"
       fail_fast: true
-      
+
     # Unit test execution
     test-units:
       run: bun run test:ci
       glob: "*.{ts,js}"
       fail_fast: true
-      
+
     # Build verification
     build-check:
       run: bun run build
@@ -133,7 +133,7 @@ pre-push:
 ```
 
 ### Package.json Changes
-```json
+```json5
 {
   "scripts": {
     "prepare": "lefthook install",

@@ -1,8 +1,8 @@
-import { createLogger } from '../../../../logger/index.js';
 import { env } from '../../../../env.js';
-import { DuckDuckGoPuppeteerProvider } from './engine/duckduckgo.js';
-import { BaseProvider } from './engine/base.js';
+import { createLogger } from '../../../../logger/index.js';
 import { WebSearchConfig } from './config.js';
+import { BaseProvider } from './engine/base.js';
+import { DuckDuckGoPuppeteerProvider } from './engine/duckduckgo.js';
 
 const logger = createLogger({ level: env.CIPHER_LOG_LEVEL });
 

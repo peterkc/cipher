@@ -2,9 +2,9 @@
  * Tests for Dynamic Prompt Provider
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { ProviderContext, ProviderType } from '../../interfaces.js';
 import { DynamicPromptProvider } from '../../providers/dynamic-provider.js';
-import { ProviderType, ProviderContext } from '../../interfaces.js';
 
 describe('DynamicPromptProvider', () => {
 	let provider: DynamicPromptProvider;

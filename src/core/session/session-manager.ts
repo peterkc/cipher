@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto';
 import { MemAgentStateManager } from '../brain/memAgent/state-manager.js';
 import { EnhancedPromptManager } from '../brain/systemPrompt/enhanced-manager.js';
 import { UnifiedToolManager } from '../brain/tools/unified-tool-manager.js';
+import { env } from '../env.js';
 import { EventManager } from '../events/event-manager.js';
 import { SessionEvents } from '../events/event-types.js';
 import { MCPManager } from '../mcp/manager.js';
@@ -15,7 +16,6 @@ import type {
 	SessionRestorationStats,
 } from './persistence-types.js';
 import { SESSION_PERSISTENCE_CONSTANTS, SessionPersistenceError } from './persistence-types.js';
-import { env } from '../env.js';
 
 export interface SessionManagerConfig {
 	maxSessions?: number;

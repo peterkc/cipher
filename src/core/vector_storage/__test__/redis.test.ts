@@ -1,12 +1,12 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { Redis } from 'ioredis';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { RedisBackend } from '../backend/redis.js';
-import type { RedisBackendConfig } from '../config.js';
 import {
-	VectorStoreError,
 	VectorDimensionError,
 	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
+import type { RedisBackendConfig } from '../config.js';
 
 // Mock pipeline methods
 const mockPipeline = {

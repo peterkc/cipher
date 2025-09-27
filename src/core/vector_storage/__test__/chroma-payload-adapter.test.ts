@@ -5,7 +5,7 @@
  * to ChromaDB-compatible flat metadata and back to original format.
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { DefaultChromaPayloadAdapter } from '../backend/chroma-payload-adapter.js';
 import type { PayloadTransformationConfig } from '../backend/types.js';
 

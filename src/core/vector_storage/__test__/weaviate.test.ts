@@ -5,7 +5,7 @@
  * Uses mocking since Weaviate requires external service.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock the logger to reduce noise in tests
 vi.mock('../../logger/index.js', () => ({
@@ -23,13 +23,12 @@ vi.mock('../../logger/index.js', () => ({
 	},
 }));
 
-import { WeaviateBackend } from '../backend/weaviate.js';
-
 import {
-	VectorStoreError,
-	VectorStoreConnectionError,
 	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
+import { WeaviateBackend } from '../backend/weaviate.js';
 
 describe('WeaviateBackend', () => {
 	let backend: WeaviateBackend;

@@ -5,12 +5,12 @@
  * Uses mocking since Milvus requires external service.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MilvusBackend } from '../backend/milvus.js';
 import {
-	VectorStoreError,
-	VectorStoreConnectionError,
 	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
 } from '../backend/types.js';
 
 // Mock the Milvus client

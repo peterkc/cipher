@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { DeepseekService } from '../deepseek.js';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MCPManager } from '../../../../mcp/manager.js';
-import { ContextManager } from '../../messages/manager.js';
 import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
+import { ContextManager } from '../../messages/manager.js';
+import { DeepseekService } from '../deepseek.js';
 
 // Mock OpenAI client
 const mockOpenAI = {

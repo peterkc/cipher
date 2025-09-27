@@ -9,8 +9,8 @@ import {
 	ICompressionStrategy,
 } from '../compression/index.js';
 import { assignMessagePriorities } from '../compression/utils.js';
-import { createTokenizer, getTokenizerConfigForModel } from '../tokenizer/index.js';
 import type { ITokenizer } from '../tokenizer/index.js';
+import { createTokenizer, getTokenizerConfigForModel } from '../tokenizer/index.js';
 import type { IMessageFormatter } from './formatters/types.js';
 import type { IConversationHistoryProvider } from './history/types.js';
 import type { ImageData, InternalMessage } from './types.js';

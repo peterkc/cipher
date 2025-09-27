@@ -1,10 +1,10 @@
-import { BaseProvider } from './base.js';
-import { SearchOptions, ProviderConfig, ExtractedContent, InternalSearchResult } from '../types.js';
-import puppeteer from 'puppeteer';
-import { logger } from '../../../../../logger/index.js';
-import { env } from '../../../../../env.js';
-import { URLSearchParams } from 'url';
 import * as os from 'os';
+import puppeteer from 'puppeteer';
+import { URLSearchParams } from 'url';
+import { env } from '../../../../../env.js';
+import { logger } from '../../../../../logger/index.js';
+import { ExtractedContent, InternalSearchResult, ProviderConfig, SearchOptions } from '../types.js';
+import { BaseProvider } from './base.js';
 
 /**
  * Get OS-specific Puppeteer launch arguments
@@ -173,62 +173,98 @@ export class DuckDuckGoPuppeteerProvider extends BaseProvider {
 			// Get page content for debugging
 			const pageContent = await page.content();
 			// Extract results using Puppeteer's page evaluation
-			const evaluationResult = await page.evaluate(
-				(maxResults: number) => {
-					const debugInfo: any = {
-						title: document.title,
-						url: window.location.href,
-						hasAnomaly: false,
-						selectorResults: {},
-						totalLinks: 0,
-						totalArticles: 0,
-					};
+			const evaluationResult = await page.evaluate((maxResults: number) => {
+				const debugInfo: any = {
+					title: document.title,
+					url: window.location.href,
+					hasAnomaly: false,
+					selectorResults: {},
+					totalLinks: 0,
+					totalArticles: 0,
+				};
 
-					// Check if we're seeing a CAPTCHA or anomaly modal
-					const anomalyModal = document.querySelector('.anomaly-modal__title');
-					if (anomalyModal) {
-						console.log(
-							'DuckDuckGo Puppeteer: CAPTCHA/Anomaly detected:',
-							anomalyModal.textContent
-						);
-						debugInfo.hasAnomaly = true;
-						debugInfo.anomalyText = anomalyModal.textContent;
-						return { results: [], debug: debugInfo };
-					}
+				// Check if we're seeing a CAPTCHA or anomaly modal
+				const anomalyModal = document.querySelector('.anomaly-modal__title');
+				if (anomalyModal) {
+					console.log('DuckDuckGo Puppeteer: CAPTCHA/Anomaly detected:', anomalyModal.textContent);
+					debugInfo.hasAnomaly = true;
+					debugInfo.anomalyText = anomalyModal.textContent;
+					return { results: [], debug: debugInfo };
+				}
 
-					// Try multiple selectors for modern DuckDuckGo
-					const possibleSelectors = [
-						'[data-testid="mainline"] article[data-testid="result"]', // Results in main area
-						'[data-testid="mainline"] article', // Any articles in main area
-						'.results--main article[data-testid="result"]',
-						'.results--main article',
-						'article[data-testid="result"]',
-						'div[data-testid="result"]',
-						'li[data-layout="organic"]',
-						'ol.react-results--main > li',
-						'[data-testid="web-vertical"] > ol > li',
-					];
-					let resultElements: Element[] = [];
+				// Try multiple selectors for modern DuckDuckGo
+				const possibleSelectors = [
+					'[data-testid="mainline"] article[data-testid="result"]', // Results in main area
+					'[data-testid="mainline"] article', // Any articles in main area
+					'.results--main article[data-testid="result"]',
+					'.results--main article',
+					'article[data-testid="result"]',
+					'div[data-testid="result"]',
+					'li[data-layout="organic"]',
+					'ol.react-results--main > li',
+					'[data-testid="web-vertical"] > ol > li',
+				];
+				let resultElements: Element[] = [];
 
-					console.log('Going to test possible selectors:');
-					for (const selector of possibleSelectors) {
-						resultElements = Array.from(document.querySelectorAll(selector));
+				console.log('Going to test possible selectors:');
+				for (const selector of possibleSelectors) {
+					resultElements = Array.from(document.querySelectorAll(selector));
 
-						if (resultElements.length > 0) {
-							// Log some details about found elements
+					if (resultElements.length > 0) {
+						// Log some details about found elements
 
-							// Check if these are site suggestions by looking at the links
-							const firstLink = resultElements[0]?.querySelector('a[href]');
-							const firstHref = firstLink?.getAttribute('href') || '';
-							if (firstHref.includes('site%3A') || firstHref.startsWith('?q=')) {
-								continue; // Keep looking for actual web results
-							}
-							break;
+						// Check if these are site suggestions by looking at the links
+						const firstLink = resultElements[0]?.querySelector('a[href]');
+						const firstHref = firstLink?.getAttribute('href') || '';
+						if (firstHref.includes('site%3A') || firstHref.startsWith('?q=')) {
+							continue; // Keep looking for actual web results
 						}
+						break;
 					}
+				}
 
-					// Since structured selectors often only find site suggestions,
-					// let's prioritize external links as the primary source
+				// Since structured selectors often only find site suggestions,
+				// let's prioritize external links as the primary source
+				const externalLinks = Array.from(document.querySelectorAll('a[href^="http"]')).filter(
+					link => {
+						const href = link.getAttribute('href') || '';
+						const title = link.textContent?.trim() || '';
+						return (
+							!href.includes('duckduckgo.com') &&
+							!href.includes('site%3A') &&
+							!title.includes('Only include results for this site') &&
+							!title.includes('More Images') &&
+							!title.includes('News for') &&
+							!title.includes('Images for') &&
+							!title.includes('More at') &&
+							!title.includes('All News') &&
+							!title.includes('All Images') &&
+							!title.startsWith('›') && // Skip breadcrumb navigation
+							title.length > 10
+						); // Ensure it's a meaningful title
+					}
+				);
+
+				// Use external links as primary source if we have them
+				if (externalLinks.length > 0) {
+					resultElements = externalLinks.slice(0, 10);
+				} else if (resultElements.length > 0) {
+					// Fallback to structured elements if no external links found
+					const firstLink = resultElements[0]?.querySelector('a[href]');
+					const firstHref = firstLink?.getAttribute('href') || '';
+					if (firstHref.includes('site%3A') || firstHref.startsWith('?q=')) {
+						console.log(
+							`DuckDuckGo Puppeteer: No good external links, keeping structured results for debugging`
+						);
+					}
+				}
+
+				// Collect debug information
+				debugInfo.totalLinks = document.querySelectorAll('a[href]').length;
+				debugInfo.totalArticles = document.querySelectorAll('article').length;
+
+				// If no results found or only site suggestions, try external links as final fallback
+				if (resultElements.length === 0) {
 					const externalLinks = Array.from(document.querySelectorAll('a[href^="http"]')).filter(
 						link => {
 							const href = link.getAttribute('href') || '';
@@ -249,173 +285,128 @@ export class DuckDuckGoPuppeteerProvider extends BaseProvider {
 						}
 					);
 
-					// Use external links as primary source if we have them
-					if (externalLinks.length > 0) {
-						resultElements = externalLinks.slice(0, 10);
-					} else if (resultElements.length > 0) {
-						// Fallback to structured elements if no external links found
-						const firstLink = resultElements[0]?.querySelector('a[href]');
-						const firstHref = firstLink?.getAttribute('href') || '';
-						if (firstHref.includes('site%3A') || firstHref.startsWith('?q=')) {
-							console.log(
-								`DuckDuckGo Puppeteer: No good external links, keeping structured results for debugging`
+					resultElements = externalLinks.slice(0, 10);
+				}
+
+				const results: any[] = [];
+				const seenDomains = new Set<string>(); // Track domains for diversity
+				console.log('DuckDuckGo: Result elements:', resultElements);
+
+				// Process results with domain diversity
+				for (
+					let index = 0;
+					index < resultElements.length && results.length < (maxResults || 10);
+					index++
+				) {
+					const element = resultElements[index];
+					if (!element) {
+						console.warn(`DuckDuckGo Puppeteer: No element found for index ${index}`);
+						continue;
+					}
+					try {
+						// Find title and URL - handle both article elements and direct link elements
+						let titleElement;
+						let href = '';
+						let title = '';
+
+						if (element.tagName.toLowerCase() === 'a') {
+							// Element is a direct link
+							titleElement = element as HTMLAnchorElement;
+							href = titleElement.getAttribute('href') || '';
+							title = titleElement.textContent?.trim() || '';
+						} else {
+							// Element is a container, find link inside
+							titleElement = element.querySelector(
+								'h3 a, h2 a, [data-testid="result-title-a"], a[href]'
 							);
+							if (!titleElement) {
+								titleElement = element.querySelector('a[href^="http"]');
+							}
+							title = titleElement?.textContent?.trim() || '';
+							href = titleElement?.getAttribute('href') || '';
 						}
-					}
 
-					// Collect debug information
-					debugInfo.totalLinks = document.querySelectorAll('a[href]').length;
-					debugInfo.totalArticles = document.querySelectorAll('article').length;
+						// Find snippet/description
+						let snippet = '';
+						const snippetSelectors = [
+							'[data-testid="result-snippet"]',
+							'.result__snippet',
+							'.result-snippet',
+							'.snippet',
+						];
 
-					// If no results found or only site suggestions, try external links as final fallback
-					if (resultElements.length === 0) {
-						const externalLinks = Array.from(document.querySelectorAll('a[href^="http"]')).filter(
-							link => {
-								const href = link.getAttribute('href') || '';
-								const title = link.textContent?.trim() || '';
-								return (
-									!href.includes('duckduckgo.com') &&
-									!href.includes('site%3A') &&
-									!title.includes('Only include results for this site') &&
-									!title.includes('More Images') &&
-									!title.includes('News for') &&
-									!title.includes('Images for') &&
-									!title.includes('More at') &&
-									!title.includes('All News') &&
-									!title.includes('All Images') &&
-									!title.startsWith('›') && // Skip breadcrumb navigation
-									title.length > 10
-								); // Ensure it's a meaningful title
+						for (const snippetSelector of snippetSelectors) {
+							const snippetElement = element.querySelector(snippetSelector);
+							if (snippetElement) {
+								snippet = snippetElement.textContent?.trim() || '';
+								break;
 							}
-						);
-
-						resultElements = externalLinks.slice(0, 10);
-					}
-
-					const results: any[] = [];
-					const seenDomains = new Set<string>(); // Track domains for diversity
-					console.log('DuckDuckGo: Result elements:', resultElements);
-
-					// Process results with domain diversity
-					for (
-						let index = 0;
-						index < resultElements.length && results.length < (maxResults || 10);
-						index++
-					) {
-						const element = resultElements[index];
-						if (!element) {
-							console.warn(`DuckDuckGo Puppeteer: No element found for index ${index}`);
-							continue;
 						}
-						try {
-							// Find title and URL - handle both article elements and direct link elements
-							let titleElement;
-							let href = '';
-							let title = '';
 
-							if (element.tagName.toLowerCase() === 'a') {
-								// Element is a direct link
-								titleElement = element as HTMLAnchorElement;
-								href = titleElement.getAttribute('href') || '';
-								title = titleElement.textContent?.trim() || '';
-							} else {
-								// Element is a container, find link inside
-								titleElement = element.querySelector(
-									'h3 a, h2 a, [data-testid="result-title-a"], a[href]'
-								);
-								if (!titleElement) {
-									titleElement = element.querySelector('a[href^="http"]');
-								}
-								title = titleElement?.textContent?.trim() || '';
-								href = titleElement?.getAttribute('href') || '';
-							}
+						// Fallback to general text content for snippet
+						if (!snippet) {
+							snippet = element.textContent?.replace(title, '').trim().slice(0, 200) || '';
+						}
 
-							// Find snippet/description
-							let snippet = '';
-							const snippetSelectors = [
-								'[data-testid="result-snippet"]',
-								'.result__snippet',
-								'.result-snippet',
-								'.snippet',
-							];
+						// Filter out site suggestions and non-web results
+						const isSiteSuggestion =
+							href.includes('site%3A') ||
+							href.startsWith('?q=') ||
+							title.includes('Only include results for this site');
+						const isValidWebResult = title && href && href.startsWith('http') && !isSiteSuggestion;
 
-							for (const snippetSelector of snippetSelectors) {
-								const snippetElement = element.querySelector(snippetSelector);
-								if (snippetElement) {
-									snippet = snippetElement.textContent?.trim() || '';
-									break;
-								}
-							}
+						if (isValidWebResult) {
+							try {
+								const domain = new URL(href).hostname.toLowerCase();
 
-							// Fallback to general text content for snippet
-							if (!snippet) {
-								snippet = element.textContent?.replace(title, '').trim().slice(0, 200) || '';
-							}
-
-							// Filter out site suggestions and non-web results
-							const isSiteSuggestion =
-								href.includes('site%3A') ||
-								href.startsWith('?q=') ||
-								title.includes('Only include results for this site');
-							const isValidWebResult =
-								title && href && href.startsWith('http') && !isSiteSuggestion;
-
-							if (isValidWebResult) {
-								try {
-									const domain = new URL(href).hostname.toLowerCase();
-
-									// Skip if we already have a result from this domain
-									if (seenDomains.has(domain)) {
-										console.warn(
-											`DuckDuckGo Puppeteer: Skipping duplicate domain: ${domain} - "${title}"`
-										);
-										continue;
-									}
-
-									// Add domain to seen set
-									seenDomains.add(domain);
-
-									// Push to result array, this is the final result that will be returned to the user
-									results.push({
-										provider: 'duckduckgo',
-										rankOnPage: results.length + 1,
-										url: href,
-										title: title,
-										snippet: snippet,
-										domain: domain,
-										llmOptimized: {
-											keyFacts: [],
-											summary: snippet || title,
-											relevanceScore: 0.5, // Default score, will be updated if content is fetched
-											contentType: 'other' as const,
-										},
-									});
-
+								// Skip if we already have a result from this domain
+								if (seenDomains.has(domain)) {
 									console.warn(
-										`DuckDuckGo Puppeteer: Added diverse result from ${domain}: "${title}"`
+										`DuckDuckGo Puppeteer: Skipping duplicate domain: ${domain} - "${title}"`
 									);
-								} catch (urlError) {
-									console.warn(
-										`DuckDuckGo Puppeteer: Invalid URL for result: "${href}" - "${title}"`
-									);
+									continue;
 								}
-							} else {
+
+								// Add domain to seen set
+								seenDomains.add(domain);
+
+								// Push to result array, this is the final result that will be returned to the user
+								results.push({
+									provider: 'duckduckgo',
+									rankOnPage: results.length + 1,
+									url: href,
+									title: title,
+									snippet: snippet,
+									domain: domain,
+									llmOptimized: {
+										keyFacts: [],
+										summary: snippet || title,
+										relevanceScore: 0.5, // Default score, will be updated if content is fetched
+										contentType: 'other' as const,
+									},
+								});
+
 								console.warn(
-									`DuckDuckGo Puppeteer: Skipping non-web result: "${title}" - "${href}"`
+									`DuckDuckGo Puppeteer: Added diverse result from ${domain}: "${title}"`
+								);
+							} catch (urlError) {
+								console.warn(
+									`DuckDuckGo Puppeteer: Invalid URL for result: "${href}" - "${title}"`
 								);
 							}
-						} catch (error) {
-							console.warn('DuckDuckGo Puppeteer: Error extracting result:', error);
+						} else {
+							console.warn(`DuckDuckGo Puppeteer: Skipping non-web result: "${title}" - "${href}"`);
 						}
+					} catch (error) {
+						console.warn('DuckDuckGo Puppeteer: Error extracting result:', error);
 					}
+				}
 
-					console.log(
-						`DuckDuckGo Puppeteer: Extracted ${results.length} diverse results from ${seenDomains.size} unique domains`
-					);
-					return { results, debug: debugInfo };
-				},
-				Number(opts.maxResults) || 3
-			);
+				console.log(
+					`DuckDuckGo Puppeteer: Extracted ${results.length} diverse results from ${seenDomains.size} unique domains`
+				);
+				return { results, debug: debugInfo };
+			}, Number(opts.maxResults) || 3);
 
 			// Optionally fetch HTML content for each result if requested
 			if (evaluationResult.results.length > 0) {

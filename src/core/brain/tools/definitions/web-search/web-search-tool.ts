@@ -1,11 +1,9 @@
-import { InternalTool } from '../../types.js';
-import { WebSearchManager } from './manager.js';
-import { getWebSearchConfigFromEnv } from './factory.js';
 import { createLogger } from '../../../../logger/index.js';
-import { SearchOptions, SearchResponse } from './types.js';
+import { InternalTool } from '../../types.js';
 import { WebSearchInput } from './config.js';
-
-import { InternalSearchResult } from './types.js';
+import { getWebSearchConfigFromEnv } from './factory.js';
+import { WebSearchManager } from './manager.js';
+import { InternalSearchResult, SearchOptions, SearchResponse } from './types.js';
 
 const logger = createLogger({ level: process.env.LOG_LEVEL || 'info' });
 

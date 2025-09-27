@@ -1,9 +1,9 @@
 import { createLogger, Logger } from '../../../../logger/index.js';
-import { LOG_PREFIXES } from './constants.js';
 import { WebSearchConfig, WebSearchConfigSchema } from './config.js';
+import { LOG_PREFIXES } from './constants.js';
 import { BaseProvider } from './engine/base.js';
 import { createWebSearchProvider } from './factory.js';
-import { SearchOptions, SearchResponse, SearchResult, InternalSearchResult } from './types.js';
+import { InternalSearchResult, SearchOptions, SearchResponse, SearchResult } from './types.js';
 
 export class WebSearchManager {
 	private config: WebSearchConfig;

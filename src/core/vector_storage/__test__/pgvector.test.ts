@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { PgVectorBackend } from '../backend/pgvector.js';
-import { VectorStoreConnectionError, VectorDimensionError } from '../backend/types.js';
+import { VectorDimensionError, VectorStoreConnectionError } from '../backend/types.js';
 
 // Mock the pg library
 const mockClient = {
@@ -121,9 +121,10 @@ describe('PgVectorBackend', () => {
 
 		it('should delete a vector', async () => {
 			await backend.delete(1);
-			expect(mockPool.query).toHaveBeenCalledWith(`DELETE FROM ${collectionName} WHERE id = $1`, [
-				1,
-			]);
+			expect(mockPool.query).toHaveBeenCalledWith(
+				`DELETE FROM ${collectionName} WHERE id = $1`,
+				[1]
+			);
 		});
 
 		it('should throw dimension error on insert', async () => {

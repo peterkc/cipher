@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { ServiceEventBus } from '../service-event-bus.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ServiceEvents } from '../event-types.js';
+import { ServiceEventBus } from '../service-event-bus.js';
 
 describe('ServiceEventBus', () => {
 	let serviceBus: ServiceEventBus;

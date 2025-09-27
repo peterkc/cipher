@@ -1,7 +1,7 @@
 import { logger } from '../../../logger/index.js';
 import { EnhancedPromptManager } from '../../systemPrompt/enhanced-manager.js';
-import { LLMConfigSchema } from '../config.js';
 import type { LLMConfig } from '../config.js';
+import { LLMConfigSchema } from '../config.js';
 import { AnthropicMessageFormatter } from './formatters/anthropic.js';
 import { AzureMessageFormatter } from './formatters/azure.js';
 import { OpenAIMessageFormatter } from './formatters/openai.js';

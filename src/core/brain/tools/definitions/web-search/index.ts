@@ -7,41 +7,39 @@
  * @module WebSearch
  */
 
-// Core components
-export { WebSearchManager } from './manager.js';
-export { BaseProvider } from './engine/base.js';
-export { DuckDuckGoPuppeteerProvider } from './engine/duckduckgo.js';
-
 // Configuration and factory
 export { WebSearchConfig, WebSearchConfigSchema } from './config.js';
-export {
-	createWebSearchProvider,
-	getWebSearchConfigFromEnv,
-	createWebSearchProviderFromEnv,
-} from './factory.js';
-
 // Constants
 export {
-	LOG_PREFIXES,
-	ERROR_MESSAGES,
-	TIMEOUTS,
-	EXTRACTION_LIMITS,
-	SEARCH_ENGINES,
 	CONTENT_TYPES,
+	ERROR_MESSAGES,
+	EXTRACTION_LIMITS,
+	LOG_PREFIXES,
+	SEARCH_ENGINES,
+	TIMEOUTS,
 } from './constants.js';
+export { BaseProvider } from './engine/base.js';
+export { DuckDuckGoPuppeteerProvider } from './engine/duckduckgo.js';
+export {
+	createWebSearchProvider,
+	createWebSearchProviderFromEnv,
+	getWebSearchConfigFromEnv,
+} from './factory.js';
+// Core components
+export { WebSearchManager } from './manager.js';
 
 // Types
 export type {
-	SearchOptions,
-	SearchResult,
-	SearchResponse,
 	ExtractedContent,
-	ProviderConfig,
 	InternalSearchResult,
+	ProviderConfig,
+	SearchOptions,
+	SearchResponse,
+	SearchResult,
 } from './types.js';
 
 // Tool integration
-export { webSearchTool, getWebSearchTools, cleanupWebSearch } from './web-search-tool.js';
+export { cleanupWebSearch, getWebSearchTools, webSearchTool } from './web-search-tool.js';
 
 /**
  * Check if web search is available based on environment configuration

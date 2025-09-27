@@ -1,6 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { logger } from '../logger/logger.js';
-import type { EventEnvelope, EventFilter, ServiceEventMap, SessionEventMap } from './event-types.js';
+import type {
+	EventEnvelope,
+	EventFilter,
+	ServiceEventMap,
+	SessionEventMap,
+} from './event-types.js';
 import { CommonFilters, EventFilterManager } from './filtering.js';
 import { EventPersistence, EventPersistenceConfig } from './persistence.js';
 import { ServiceEventBus } from './service-event-bus.js';

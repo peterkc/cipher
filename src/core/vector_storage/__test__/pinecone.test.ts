@@ -1,11 +1,11 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { PineconeBackend } from '../backend/pinecone.js';
-import {
-	VectorStoreError,
-	VectorStoreConnectionError,
-	VectorDimensionError,
-} from '../backend/types.js';
 import type { PineconeBackendConfig, SearchFilters } from '../backend/types.js';
+import {
+	VectorDimensionError,
+	VectorStoreConnectionError,
+	VectorStoreError,
+} from '../backend/types.js';
 
 // Mock Pinecone client
 const mockIndex = {

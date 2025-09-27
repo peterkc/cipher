@@ -4,8 +4,8 @@ import { AnthropicTokenizer } from './providers/anthropic.js';
 import { DefaultTokenizer } from './providers/default.js';
 import { GoogleTokenizer } from './providers/google.js';
 import { OpenAITokenizer } from './providers/openai.js';
-import { TokenizerConfigSchema } from './types.js';
 import type { ITokenizer, TokenizerConfig } from './types.js';
+import { TokenizerConfigSchema } from './types.js';
 
 /**
  * Create a tokenizer instance based on provider configuration

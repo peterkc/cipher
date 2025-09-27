@@ -1,4 +1,4 @@
-import { SearchOptions, ProviderConfig, InternalSearchResult } from '../types.js';
+import { InternalSearchResult, ProviderConfig, SearchOptions } from '../types.js';
 
 /**
  * Abstract base class for web search providers

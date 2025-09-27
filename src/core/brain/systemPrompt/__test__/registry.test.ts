@@ -2,9 +2,9 @@
  * Tests for Provider Registry
  */
 
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { PromptProvider, ProviderConfig, ProviderType } from '../interfaces.js';
 import { DefaultProviderRegistry } from '../registry.js';
-import { ProviderConfig, ProviderType, PromptProvider } from '../interfaces.js';
 
 describe('DefaultProviderRegistry', () => {
 	let registry: DefaultProviderRegistry;

@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { AzureService } from '../azure.js';
+import { AzureKeyCredential, OpenAIClient } from '@azure/openai';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MCPManager } from '../../../../mcp/manager.js';
-import { ContextManager } from '../../messages/manager.js';
 import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
-import { OpenAIClient, AzureKeyCredential } from '@azure/openai';
+import { ContextManager } from '../../messages/manager.js';
+import { AzureService } from '../azure.js';
 
 vi.mock('@azure/openai', () => ({
 	OpenAIClient: vi.fn(),

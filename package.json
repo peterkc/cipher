@@ -26,10 +26,7 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"files": [
-		"dist/",
-		"memAgent/cipher.yml"
-	],
+	"files": ["dist/", "memAgent/cipher.yml"],
 	"scripts": {
 		"clean": "rm -rf dist",
 		"prebuild": "pnpm run clean",
@@ -53,14 +50,7 @@
 		"format:check": "prettier --check \"src/**/*.ts\" \"*.{js,json,md,yml,yaml}\"",
 		"prepublishOnly": "pnpm run build"
 	},
-	"keywords": [
-		"mcp",
-		"model-context-protocol",
-		"memory",
-		"vibe-coding",
-		"byterover",
-		"openai"
-	],
+	"keywords": ["mcp", "model-context-protocol", "memory", "vibe-coding", "byterover", "openai"],
 	"author": "BYTEROVER",
 	"license": "Elastic-2.0",
 	"devDependencies": {

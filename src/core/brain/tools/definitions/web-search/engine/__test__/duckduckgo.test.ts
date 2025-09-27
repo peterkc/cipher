@@ -5,11 +5,11 @@
  * LLM optimization, error handling, and platform-specific configurations.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi, type MockedFunction } from 'vitest';
-import { DuckDuckGoPuppeteerProvider } from '../duckduckgo.js';
-import { SearchOptions, InternalSearchResult, ExtractedContent } from '../../types.js';
 import * as os from 'os';
 import puppeteer from 'puppeteer';
+import { afterEach, beforeEach, describe, expect, it, type MockedFunction, vi } from 'vitest';
+import { ExtractedContent, InternalSearchResult, SearchOptions } from '../../types.js';
+import { DuckDuckGoPuppeteerProvider } from '../duckduckgo.js';
 
 // Mock Puppeteer
 const mockPage = {

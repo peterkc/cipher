@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { UnifiedToolManager } from '../unified-tool-manager.js';
-import { InternalToolManager } from '../manager.js';
-import { InternalToolRegistry } from '../registry.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MCPManager } from '../../../mcp/manager.js';
 import { registerAllTools } from '../definitions/index.js';
+import { InternalToolManager } from '../manager.js';
+import { InternalToolRegistry } from '../registry.js';
+import { UnifiedToolManager } from '../unified-tool-manager.js';
 
 // Mock the logger to avoid console output during tests
 vi.mock('../../../logger/index.js', () => ({

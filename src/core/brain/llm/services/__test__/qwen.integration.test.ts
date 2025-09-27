@@ -1,9 +1,10 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { QwenService, QwenOptions } from '../qwen.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MCPManager } from '../../../../mcp/manager.js';
-import { ContextManager } from '../../messages/manager.js';
-import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
 import { EnhancedPromptManager } from '../../../systemPrompt/enhanced-manager.js';
+import { UnifiedToolManager } from '../../../tools/unified-tool-manager.js';
+import { ContextManager } from '../../messages/manager.js';
+import { QwenOptions, QwenService } from '../qwen.js';
+
 // import { LLMConfig } from '../../config.js';
 
 // Mock OpenAI client

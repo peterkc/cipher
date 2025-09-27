@@ -99,7 +99,11 @@ function fixFileImports(filePath: string, lineNumbers: Set<number>): number {
 		}
 
 		// Pattern 2: import Name from '...' (default import)
-		if (line.match(/^\s*import\s+[A-Za-z]/) && !line.includes('import type') && !line.includes('{')) {
+		if (
+			line.match(/^\s*import\s+[A-Za-z]/) &&
+			!line.includes('import type') &&
+			!line.includes('{')
+		) {
 			line = line.replace(/^(\s*)import\s+/, '$1import type ');
 			lines[lineIndex] = line;
 			fixCount++;
@@ -130,7 +134,9 @@ async function main() {
 		return;
 	}
 
-	console.log(`Found ${errors.length} type import errors across ${new Set(errors.map((e) => e.file)).size} files\n`);
+	console.log(
+		`Found ${errors.length} type import errors across ${new Set(errors.map(e => e.file)).size} files\n`
+	);
 
 	// Step 2: Group by file
 	const fileFixes = groupErrorsByFile(errors);
@@ -163,10 +169,12 @@ async function main() {
 	console.log('💡 Next steps:');
 	console.log('   1. Review the changes: git diff');
 	console.log('   2. Run build: bun run build');
-	console.log('   3. Commit changes: git commit -am "fix: convert to type-only imports for verbatimModuleSyntax"\n');
+	console.log(
+		'   3. Commit changes: git commit -am "fix: convert to type-only imports for verbatimModuleSyntax"\n'
+	);
 }
 
-main().catch((error) => {
+main().catch(error => {
 	console.error('❌ Error:', error);
 	process.exit(1);
 });

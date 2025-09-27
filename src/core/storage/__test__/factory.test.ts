@@ -4,15 +4,15 @@
  * Tests for the factory functions that create and initialize storage systems.
  */
 
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { InMemoryBackend } from '../backend/in-memory.js';
 import {
-	createStorageBackends,
 	createDefaultStorage,
+	createStorageBackends,
 	createStorageFromEnv,
 	isStorageFactory,
 } from '../factory.js';
 import { StorageManager } from '../manager.js';
-import { InMemoryBackend } from '../backend/in-memory.js';
 import type { StorageConfig } from '../types.js';
 
 // Mock the logger to reduce noise in tests

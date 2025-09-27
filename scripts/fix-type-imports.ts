@@ -136,7 +136,7 @@ async function main() {
 	console.log('   4. Commit changes\n');
 }
 
-main().catch((error) => {
+main().catch(error => {
 	console.error('❌ Error:', error);
 	process.exit(1);
 });

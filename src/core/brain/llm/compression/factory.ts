@@ -4,8 +4,8 @@ import { createServiceKey, getServiceCache } from '../../memory/service-cache.js
 import { HybridStrategy } from './strategies/hybrid.js';
 import { MiddleRemovalStrategy } from './strategies/middle-removal.js';
 import { OldestRemovalStrategy } from './strategies/oldest-removal.js';
-import { CompressionConfigSchema } from './types.js';
 import type { ICompressionStrategy } from './types.js';
+import { CompressionConfigSchema } from './types.js';
 
 export type CompressionFactoryConfig = z.infer<typeof CompressionConfigSchema>;
 

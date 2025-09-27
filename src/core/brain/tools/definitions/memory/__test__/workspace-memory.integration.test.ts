@@ -1,17 +1,17 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+	DEFAULT_WORKSPACE_CONFIG,
+	loadWorkspaceConfigFromEnv,
+	validateWorkspaceMemoryConfig,
+} from '../../../../../config/workspace-memory-config.schema.js';
 import { workspaceSearchTool } from '../workspace_search.js';
 import { workspaceStoreTool } from '../workspace_store.js';
+import { createWorkspacePayload, extractWorkspaceInfo } from '../workspace-payloads.js';
 import {
 	getWorkspaceTools,
 	shouldDisableDefaultMemory,
 	validateWorkspaceMemorySetup,
 } from '../workspace-tools.js';
-import { createWorkspacePayload, extractWorkspaceInfo } from '../workspace-payloads.js';
-import {
-	loadWorkspaceConfigFromEnv,
-	validateWorkspaceMemoryConfig,
-	DEFAULT_WORKSPACE_CONFIG,
-} from '../../../../../config/workspace-memory-config.schema.js';
 
 describe('Workspace Memory Integration Tests', () => {
 	let mockContext: any;

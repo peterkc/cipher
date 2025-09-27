@@ -4,16 +4,16 @@
  * Tests for the factory functions that create and initialize vector storage systems.
  */
 
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { InMemoryBackend } from '../backend/in-memory.js';
 import {
-	createVectorStore,
 	createDefaultVectorStore,
+	createVectorStore,
 	createVectorStoreFromEnv,
 	getVectorStoreConfigFromEnv,
 	isVectorStoreFactory,
 } from '../factory.js';
 import { VectorStoreManager } from '../manager.js';
-import { InMemoryBackend } from '../backend/in-memory.js';
 import type { VectorStoreConfig } from '../types.js';
 
 // Mock the logger to reduce noise in tests

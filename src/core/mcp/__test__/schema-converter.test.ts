@@ -2,14 +2,14 @@
  * Tests for JSON Schema to Zod conversion utility
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 import {
+	createSafeValidator,
+	createToolArgumentValidator,
 	jsonSchemaToZod,
 	toolParametersToZod,
-	createToolArgumentValidator,
 	validateToolArguments,
-	createSafeValidator,
 } from '../schema-converter.js';
 import type { ToolParameters } from '../types.js';
 

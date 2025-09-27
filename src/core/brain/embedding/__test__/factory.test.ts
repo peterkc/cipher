@@ -5,24 +5,24 @@
  * configuration validation, and embedder creation.
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { BackendConfig } from '../backend/types.js';
+import { EmbeddingValidationError } from '../backend/types.js';
 import {
 	createEmbedder,
 	createEmbedderFromEnv,
-	validateEmbeddingConfiguration,
+	EMBEDDING_FACTORIES,
 	getSupportedProviders,
 	isProviderSupported,
-	EMBEDDING_FACTORIES,
-	OpenAIEmbeddingFactory,
 	// GeminiEmbeddingFactory,
 	// OllamaEmbeddingFactory,
 	// VoyageEmbeddingFactory,
 	// QwenEmbeddingFactory,
 	// AWSBedrockEmbeddingFactory,
 	LMStudioEmbeddingFactory,
+	OpenAIEmbeddingFactory,
+	validateEmbeddingConfiguration,
 } from '../factory.js';
-import type { BackendConfig } from '../backend/types.js';
-import { EmbeddingValidationError } from '../backend/types.js';
 
 // Mock all embedding backends
 vi.mock('../backend/openai.js', () => ({

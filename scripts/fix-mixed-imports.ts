@@ -59,7 +59,7 @@ function parseErrors(): ErrorInfo[] {
 	while ((match = needsValuePattern.exec(output)) !== null) {
 		errors.push({
 			file: match[1]!,
-			line: parseInt(match[2]!,  10),
+			line: parseInt(match[2]!, 10),
 			name: match[3]!,
 			type: 'needs-value',
 		});
@@ -92,19 +92,19 @@ function fixFile(filePath: string, errors: ErrorInfo[]): number {
 		const line = lines[lineIndex]!;
 
 		// Check if we have errors requiring opposite actions (needs-type AND needs-value)
-		const needsType = lineErrors.some((e) => e.type === 'needs-type');
-		const needsValue = lineErrors.some((e) => e.type === 'needs-value');
+		const needsType = lineErrors.some(e => e.type === 'needs-type');
+		const needsValue = lineErrors.some(e => e.type === 'needs-value');
 
 		if (needsValue && line.includes('import type')) {
 			// Split the import: some names need type, others need value
 			const match = line.match(/^(\s*)import type \{ ([^}]+) \} from (['"][^'"]+['"])/);
 			if (match) {
 				const [, indent, imports, from] = match;
-				const importNames = imports!.split(',').map((n) => n.trim());
+				const importNames = imports!.split(',').map(n => n.trim());
 
 				// Names that caused TS1361 errors (used as values)
-				const valueNames = lineErrors.filter((e) => e.type === 'needs-value').map((e) => e.name);
-				const typeNames = importNames.filter((n) => !valueNames.includes(n));
+				const valueNames = lineErrors.filter(e => e.type === 'needs-value').map(e => e.name);
+				const typeNames = importNames.filter(n => !valueNames.includes(n));
 
 				// Create two import statements if needed
 				const newLines: string[] = [];
